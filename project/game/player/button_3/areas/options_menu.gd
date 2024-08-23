@@ -1,0 +1,1 @@
+class_name OptionsMenuArea extends Area2D

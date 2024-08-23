@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck5nly71iwpkd"]
+
+[ext_resource type="Script" path="res://addons/zaft_game_manager/audio/autoload.gd" id="1_fcb7v"]
+
+[node name="Audio" type="Node2D"]
+script = ExtResource("1_fcb7v")
+
+[node name="Master" type="Node2D" parent="."]
+
+[node name="TestSound" type="AudioStreamPlayer" parent="Master"]
+
+[node name="BGM" type="Node2D" parent="."]
+
+[node name="TestSound" type="AudioStreamPlayer" parent="BGM"]
+bus = &"BGM"
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="TestSound" type="AudioStreamPlayer" parent="SFX"]
+bus = &"SFX"
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="TestSound" type="AudioStreamPlayer" parent="UI"]
+bus = &"UI"
+
+[node name="Focus" type="AudioStreamPlayer" parent="UI"]
+bus = &"UI"
+
+[node name="Press" type="AudioStreamPlayer" parent="UI"]
+bus = &"UI"

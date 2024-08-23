@@ -1,0 +1,165 @@
+[gd_scene load_steps=31 format=3 uid="uid://bal7ofwbeschm"]
+
+[ext_resource type="Script" path="res://game/player/character_scene.gd" id="1_y1gjn"]
+[ext_resource type="Script" path="res://game/player/components.gd" id="2_54hwg"]
+[ext_resource type="Script" path="res://addons/zaft_game_manager/state_machine/state_machine.gd" id="2_qu6x0"]
+[ext_resource type="SpriteFrames" uid="uid://k8plixhi7trl" path="res://game/player/player_sprite_frames.tres" id="2_yd0lo"]
+[ext_resource type="Script" path="res://game/player/movement/initial.gd" id="3_6kaoa"]
+[ext_resource type="Script" path="res://game/player/stats.gd" id="3_si0hl"]
+[ext_resource type="Script" path="res://game/player/movement/asc.gd" id="4_fdll8"]
+[ext_resource type="Script" path="res://addons/zaft_project_defaults/input/input.gd" id="4_iah2d"]
+[ext_resource type="Script" path="res://game/player/movement/dsc.gd" id="5_h3nxi"]
+[ext_resource type="Script" path="res://game/player/movement/dsh.gd" id="6_yiq0m"]
+[ext_resource type="Script" path="res://game/player/movement/gnd.gd" id="7_y320d"]
+[ext_resource type="Script" path="res://game/player/direction/none.gd" id="8_o61bl"]
+[ext_resource type="Script" path="res://game/player/movement/coy.gd" id="9_6mkhs"]
+[ext_resource type="Script" path="res://game/player/direction/right.gd" id="9_ia2l2"]
+[ext_resource type="Script" path="res://game/player/direction/left.gd" id="10_acp62"]
+[ext_resource type="Script" path="res://game/player/machine.gd" id="11_gsmx2"]
+[ext_resource type="Script" path="res://game/player/button_0/nothing.gd" id="13_0tgg3"]
+[ext_resource type="Script" path="res://game/player/button_0/auto_move.gd" id="14_2bvj7"]
+[ext_resource type="Script" path="res://game/player/button_1/nothing.gd" id="14_5m6cj"]
+[ext_resource type="Script" path="res://game/player/button_2/nothing.gd" id="15_keaus"]
+[ext_resource type="Script" path="res://game/player/input.gd" id="16_1b7rw"]
+[ext_resource type="Script" path="res://game/player/visuals.gd" id="16_a186j"]
+[ext_resource type="Script" path="res://game/player/button_1/jump.gd" id="16_hxuww"]
+[ext_resource type="Script" path="res://game/player/button_3/nothing.gd" id="16_rngm6"]
+[ext_resource type="Script" path="res://game/player/button_2/dash.gd" id="18_bv3ki"]
+[ext_resource type="Script" path="res://game/player/button_2/change_direction.gd" id="19_1ig6t"]
+[ext_resource type="Script" path="res://game/player/button_3/options_menu.gd" id="21_y36jo"]
+[ext_resource type="Script" path="res://game/player/button_3/start_game.gd" id="22_x8cam"]
+[ext_resource type="Script" path="res://game/player/button_3/pause.gd" id="23_ombac"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_365dg"]
+size = Vector2(8, 12)
+
+[node name="Character" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 6
+script = ExtResource("1_y1gjn")
+
+[node name="CastDetectWallRight" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -4)
+target_position = Vector2(6, 0)
+collision_mask = 2
+
+[node name="CastDetectWallLeft" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -4)
+target_position = Vector2(-6, 0)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_365dg")
+
+[node name="Components" type="Node2D" parent="."]
+script = ExtResource("2_54hwg")
+
+[node name="StateMachineMovement" type="Node2D" parent="Components"]
+script = ExtResource("2_qu6x0")
+machine_mode = 1
+metadata/machine_type = "movement"
+
+[node name="Initial" type="Node2D" parent="Components/StateMachineMovement"]
+script = ExtResource("3_6kaoa")
+
+[node name="Asc" type="Node2D" parent="Components/StateMachineMovement"]
+script = ExtResource("4_fdll8")
+
+[node name="Dsc" type="Node2D" parent="Components/StateMachineMovement"]
+script = ExtResource("5_h3nxi")
+
+[node name="Dsh" type="Node2D" parent="Components/StateMachineMovement"]
+script = ExtResource("6_yiq0m")
+
+[node name="Gnd" type="Node2D" parent="Components/StateMachineMovement"]
+script = ExtResource("7_y320d")
+
+[node name="Coy" type="Node2D" parent="Components/StateMachineMovement"]
+script = ExtResource("9_6mkhs")
+
+[node name="StateMachineDirection" type="Node2D" parent="Components"]
+script = ExtResource("2_qu6x0")
+machine_mode = 1
+metadata/machine_type = "direction"
+
+[node name="None" type="Node2D" parent="Components/StateMachineDirection"]
+script = ExtResource("8_o61bl")
+
+[node name="Right" type="Node2D" parent="Components/StateMachineDirection"]
+script = ExtResource("9_ia2l2")
+
+[node name="Left" type="Node2D" parent="Components/StateMachineDirection"]
+script = ExtResource("10_acp62")
+
+[node name="StateMachineButton0" type="Node2D" parent="Components"]
+script = ExtResource("2_qu6x0")
+metadata/machine_type = "button0"
+
+[node name="Nothing" type="Node2D" parent="Components/StateMachineButton0"]
+script = ExtResource("13_0tgg3")
+
+[node name="AutoMove" type="Node2D" parent="Components/StateMachineButton0"]
+script = ExtResource("14_2bvj7")
+
+[node name="StateMachineButton1" type="Node2D" parent="Components"]
+script = ExtResource("2_qu6x0")
+metadata/machine_type = "button1"
+
+[node name="Nothing" type="Node2D" parent="Components/StateMachineButton1"]
+script = ExtResource("14_5m6cj")
+
+[node name="Jump" type="Node2D" parent="Components/StateMachineButton1"]
+script = ExtResource("16_hxuww")
+
+[node name="StateMachineButton2" type="Node2D" parent="Components"]
+script = ExtResource("2_qu6x0")
+metadata/machine_type = "button2"
+
+[node name="Nothing" type="Node2D" parent="Components/StateMachineButton2"]
+script = ExtResource("15_keaus")
+
+[node name="Dash" type="Node2D" parent="Components/StateMachineButton2"]
+script = ExtResource("18_bv3ki")
+
+[node name="ChangeDirection" type="Node2D" parent="Components/StateMachineButton2"]
+script = ExtResource("19_1ig6t")
+
+[node name="StateMachineButton3" type="Node2D" parent="Components"]
+script = ExtResource("2_qu6x0")
+metadata/machine_type = "button3"
+
+[node name="Nothing" type="Node2D" parent="Components/StateMachineButton3"]
+script = ExtResource("16_rngm6")
+
+[node name="OptionsMenu" type="Node2D" parent="Components/StateMachineButton3"]
+script = ExtResource("21_y36jo")
+
+[node name="StartGame" type="Node2D" parent="Components/StateMachineButton3"]
+script = ExtResource("22_x8cam")
+
+[node name="Pause" type="Node2D" parent="Components/StateMachineButton3"]
+script = ExtResource("23_ombac")
+
+[node name="PlayerStateMachine" type="Node2D" parent="Components"]
+script = ExtResource("11_gsmx2")
+
+[node name="PlayerStats" type="Node2D" parent="Components"]
+script = ExtResource("3_si0hl")
+
+[node name="DefaultInput" type="Node2D" parent="Components"]
+script = ExtResource("4_iah2d")
+
+[node name="PlayerInput" type="Node2D" parent="Components"]
+script = ExtResource("16_1b7rw")
+
+[node name="Visuals" type="Node2D" parent="."]
+script = ExtResource("16_a186j")
+
+[node name="BodyAnimatedSprite" type="AnimatedSprite2D" parent="Visuals"]
+unique_name_in_owner = true
+sprite_frames = ExtResource("2_yd0lo")
+animation = &"dsh"
+autoplay = "walk"

@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=4 uid="uid://dd2g4xk2jrd3e"]
+
+[ext_resource type="PackedScene" uid="uid://cr1v0ms0iny16" path="res://game/terrain/foreground_tiles.tscn" id="1_3i78i"]
+[ext_resource type="Script" path="res://game/camera/follow.gd" id="2_c6pha"]
+[ext_resource type="Script" path="res://game/player/spawner.gd" id="3_t7smi"]
+[ext_resource type="Script" path="res://game/powerups/button3.gd" id="4_rhxjx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sim8a"]
+size = Vector2(104, 28)
+
+[node name="TitleScreen" type="Node2D"]
+
+[node name="ForegroundTiles" parent="." instance=ExtResource("1_3i78i")]
+tile_map_data = PackedByteArray("AAD1/wUAAAAAAAAAAAD2/wUAAAAAAAAAAAD3/wUAAAAAAAAAAAD4/wUAAAAAAAAAAAD5/wUAAAAAAAAAAAD6/wUAAAAAAAAAAAD7/wUAAAAAAAAAAAD8/wUAAAAAAAAAAAD9/wUAAAAAAAAAAAD+/wUAAAAAAAAAAAD//wUAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAKAAQAAAAAAAAAAAALAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAADAAQAAAAAAAAAAAACAAQAAAAAAAAAAAABAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAD//wQAAAAAAAAAAAD+/wQAAAAAAAAAAAD9/wQAAAAAAAAAAAD8/wQAAAAAAAAAAAD7/wQAAAAAAAAAAAD6/wQAAAAAAAAAAAD5/wQAAAAAAAAAAAD4/wQAAAAAAAAAAAD3/wQAAAAAAAAAAAD2/wQAAAAAAAAAAAD1/wQAAAAAAAAAAAD0/wUAAAAAAAAAAAD0/wQAAAAAAAAAAAD0/wMAAAAAAAAAAAD0/wIAAAAAAAAAAAD0/wEAAAAAAAAAAAD0/wAAAAAAAAAAAAD0////AAAAAAAAAAD0//7/AAAAAAAAAAD0//3/AAAAAAAAAAD0//z/AAAAAAAAAAD0//v/AAAAAAAAAAD0//r/AAAAAAAAAADz//r/AAAAAAAAAADz//v/AAAAAAAAAADz//z/AAAAAAAAAADz//3/AAAAAAAAAADz//7/AAAAAAAAAADz////AAAAAAAAAADz/wAAAAAAAAAAAADz/wEAAAAAAAAAAADz/wIAAAAAAAAAAADz/wMAAAAAAAAAAADz/wQAAAAAAAAAAADz/wUAAAAAAAAAAAAMAAUAAAAAAAAAAAAMAAQAAAAAAAAAAAALAAMAAAAAAAAAAAALAAIAAAAAAAAAAAALAAEAAAAAAAAAAAALAP7/AAAAAAAAAAALAP3/AAAAAAAAAAALAPz/AAAAAAAAAAALAPv/AAAAAAAAAAALAPr/AAAAAAAAAAALAPn/AAAAAAAAAAAMAPn/AAAAAAAAAAAMAPr/AAAAAAAAAAAMAPv/AAAAAAAAAAAMAPz/AAAAAAAAAAAMAP3/AAAAAAAAAAAMAP7/AAAAAAAAAAAMAP//AAAAAAAAAAAMAAAAAAAAAAAAAAAMAAEAAAAAAAAAAAAMAAIAAAAAAAAAAAAMAAMAAAAAAAAAAAALAAAAAAAAAAAAAAALAP//AAAAAAAAAADz//n/AAAAAAAAAAD0//n/AAAAAAAAAAA=")
+
+[node name="CameraFollowsPlayer" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+process_callback = 0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource("2_c6pha")
+auto_physics_process = true
+
+[node name="PlayerSpawner" type="Area2D" parent="."]
+script = ExtResource("3_t7smi")
+active = true
+layer = "menu"
+
+[node name="PowerUpButton3" type="Area2D" parent="."]
+position = Vector2(-132, 0)
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("4_rhxjx")
+what = 1
+
+[node name="Label" type="Label" parent="PowerUpButton3"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 40.0
+offset_bottom = 38.0
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PowerUpButton3"]
+position = Vector2(44, 22)
+shape = SubResource("RectangleShape2D_sim8a")

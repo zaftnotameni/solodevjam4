@@ -1,0 +1,180 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Solo Jam 4"
+config/description="Solo Dev Jam 4"
+config/version="0.0.1"
+run/main_scene="res://game/main/main.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+
+[audio]
+
+buses/default_bus_layout="res://addons/zaft_project_defaults/audio/default_bus_layout.tres"
+
+[autoload]
+
+__config="*res://addons/zaft_game_manager/./config/autoload.tscn"
+__state="*res://addons/zaft_game_manager/./state/autoload.tscn"
+__layers="*res://addons/zaft_game_manager/./layers/autoload.tscn"
+__audio="*res://addons/zaft_game_manager/./audio/autoload.tscn"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
+
+[display]
+
+window/size/viewport_width=1366
+window/size/viewport_height=768
+window/size/initial_position_type=3
+window/stretch/mode="viewport"
+
+[editor]
+
+naming/script_name_casing=2
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_sfxr/plugin.cfg", "res://addons/zaft_game_manager/plugin.cfg", "res://addons/zaft_project_defaults/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://assets/": "orange",
+"res://game/": "purple",
+"res://generated/": "green",
+"res://lib/": "red",
+"res://test/": "pink"
+}
+
+[global_group]
+
+background_layer=""
+game_layer=""
+menu_layer=""
+hud_layer=""
+
+[gui]
+
+theme/custom="res://addons/zaft_project_defaults/theme/default_theme.tres"
+theme/custom_font="res://addons/zaft_project_defaults/fonts/monogram-extended.ttf"
+
+[input]
+
+player_up={
+"deadzone": 0.5,
+"events": []
+}
+player_down={
+"deadzone": 0.5,
+"events": []
+}
+player_left={
+"deadzone": 0.5,
+"events": []
+}
+player_right={
+"deadzone": 0.5,
+"events": []
+}
+player_interact={
+"deadzone": 0.5,
+"events": []
+}
+pause={
+"deadzone": 0.5,
+"events": []
+}
+unpause={
+"deadzone": 0.5,
+"events": []
+}
+menu_close={
+"deadzone": 0.5,
+"events": []
+}
+menu_accept={
+"deadzone": 0.5,
+"events": []
+}
+menu_back={
+"deadzone": 0.5,
+"events": []
+}
+player_jump={
+"deadzone": 0.5,
+"events": []
+}
+player_dash={
+"deadzone": 0.5,
+"events": []
+}
+player_roll={
+"deadzone": 0.5,
+"events": []
+}
+player_attack={
+"deadzone": 0.5,
+"events": []
+}
+player_use={
+"deadzone": 0.5,
+"events": []
+}
+player_button_one={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194326,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":88,"key_label":0,"unicode":120,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":49,"key_label":0,"unicode":49,"location":0,"echo":false,"script":null)
+]
+}
+player_button_two={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194309,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":67,"key_label":0,"unicode":99,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":50,"key_label":0,"unicode":50,"location":0,"echo":false,"script":null)
+]
+}
+
+[layer_names]
+
+2d_render/layer_2="solid_tiles"
+2d_physics/layer_2="terrain_foreground"
+2d_physics/layer_3="terrain_foreground_one_way"
+2d_physics/layer_4="player_body"
+2d_physics/layer_5="power_up_3"
+2d_physics/layer_6="power_up_2"
+2d_physics/layer_7="power_up_1"
+2d_physics/layer_8="power_up_0"
+
+[physics]
+
+2d/run_on_separate_thread=true
+common/physics_interpolation=true
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/ssao/quality=0
+environment/ssil/quality=0
+anti_aliasing/screen_space_roughness_limiter/enabled=false
+environment/glow/upscale_mode=0
+environment/screen_space_reflection/roughness_quality=0
+environment/subsurface_scattering/subsurface_scattering_quality=0
+environment/defaults/default_clear_color=Color(0.0862745, 0.0784314, 0.223529, 1)
+viewport/hdr_2d=true
+environment/defaults/default_environment="res://addons/zaft_project_defaults/world/default_world_environment.tres"

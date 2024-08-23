@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr1v0ms0iny16"]
+
+[ext_resource type="TileSet" uid="uid://k0cn7hviksus" path="res://game/terrain/foreground_tiles_tileset.tres" id="1_cxgvd"]
+[ext_resource type="Script" path="res://game/terrain/foreground_tiles_scene.gd" id="1_xlexe"]
+
+[node name="ForegroundTiles" type="TileMapLayer"]
+tile_set = ExtResource("1_cxgvd")
+script = ExtResource("1_xlexe")

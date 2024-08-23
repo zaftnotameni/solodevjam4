@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://1a0kfimombr2"]
+
+[ext_resource type="Script" path="res://addons/zaft_game_manager/state/autoload.gd" id="1_7a2p8"]
+
+[node name="State" type="Node2D"]
+script = ExtResource("1_7a2p8")

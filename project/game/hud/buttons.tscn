@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://owhqpn13v0yi"]
+
+[ext_resource type="Script" path="res://game/hud/label_for_button1.gd" id="1_y6n4g"]
+[ext_resource type="Script" path="res://game/hud/label_for_button2.gd" id="2_fyu2u"]
+[ext_resource type="Script" path="res://game/hud/label_for_button3.gd" id="3_ho52w"]
+
+[node name="Buttons" type="GridContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 80.0
+grow_horizontal = 2
+columns = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "B"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "A + B"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_y6n4g")
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_fyu2u")
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_ho52w")

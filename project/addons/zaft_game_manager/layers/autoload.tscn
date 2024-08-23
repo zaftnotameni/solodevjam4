@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3vlb47qout7s"]
+
+[ext_resource type="Script" path="res://addons/zaft_game_manager/layers/autoload.gd" id="1_kf67m"]
+
+[node name="Layers" type="Node2D"]
+script = ExtResource("1_kf67m")
+
+[node name="Background" type="CanvasLayer" parent="." groups=["background_layer"]]
+layer = -1
+
+[node name="Game" type="CanvasLayer" parent="." groups=["game_layer"]]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="HUD" type="CanvasLayer" parent="." groups=["hud_layer"]]
+layer = 3
+
+[node name="Menu" type="CanvasLayer" parent="." groups=["menu_layer"]]
+follow_viewport_enabled = true

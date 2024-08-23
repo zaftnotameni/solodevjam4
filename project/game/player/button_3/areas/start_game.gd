@@ -1,0 +1,1 @@
+class_name StartGameArea extends Area2D
