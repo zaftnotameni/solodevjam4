@@ -19,8 +19,6 @@ class_name CameraFollowsPlayer extends Camera2D
 ## Follow factor
 @export var follow_factor : float = 400
 
-@export var auto_physics_process : bool = false
-
 func trauma_request(t:float, m:float=0.3):
 	trauma = m if (trauma + t >= m) else trauma + t
 
@@ -39,28 +37,22 @@ func constant_trauma_relief(t:float):
 func constant_trauma_clear():
 	constant_trauma = 0.0
 
-func with_auto_physics_process(val:=false) -> CameraFollowsPlayer:
-	auto_physics_process = val
-	return self
-
 func with_zoom(z:float=1) -> CameraFollowsPlayer:
 	zoom = Vector2(z,z)
 	return self
 
 func on_player_ready():
 	follow_target = CharacterScene.first()
-	print('hello')
 
 func on_player_exit():
 	follow_target = null
 
 func _ready() -> void:
-	set_process(false)
-	set_physics_process(auto_physics_process)
 	State.first().sig_player_ready.connect(on_player_ready)
 	State.first().sig_player_exit.connect(on_player_exit)
 	follow_target = CharacterScene.first()
 	setup_boundaries()
+	make_current()
 
 func do_follow_target(n:Node2D,d:float) -> void:
 	global_position = global_position.move_toward(n.global_position, d * follow_factor)
@@ -85,11 +77,12 @@ const GROUP := 'camera_follows_player'
 
 func _enter_tree() -> void:
 	add_to_group(GROUP)
+	set_process(false)
+	set_physics_process(true)
 
 static func tree() -> SceneTree: return Engine.get_main_loop()
 static func first() -> CameraFollowsPlayer: return tree().get_first_node_in_group(GROUP)
 static func all() -> Array: return tree().get_nodes_in_group(GROUP)
-
 
 var min_x : float = 1000000
 var min_y : float = 1000000

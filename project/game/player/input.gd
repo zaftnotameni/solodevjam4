@@ -7,6 +7,20 @@ class_name PlayerInput extends Node2D
 @onready var machine_button1 = components.resolve_machine_button1()
 @onready var machine_button2 = components.resolve_machine_button2()
 @onready var machine_button3 = components.resolve_machine_button3()
+@onready var default_input := components.resolve_default_input()
+
+func is_button_three_pressed(event:InputEvent=null) -> bool:
+	if event and (
+		not DefaultInput.is_event_player_button_two_pressed(event) and
+		not DefaultInput.is_event_player_button_one_pressed(event)
+	): return false
+
+	var tolerance : float = 0.2
+	if default_input.last_player_button_one_pressed > tolerance: return false
+	if default_input.last_player_button_two_pressed > tolerance: return false
+	#if default_input.last_player_button_one_released < tolerance: return false
+	#if default_input.last_player_button_two_released < tolerance: return false
+	return true
 
 func is_jump_requested() -> bool:
 	if DefaultInput.is_input_player_button_two_pressed(): return false
@@ -23,11 +37,3 @@ func is_jump_cancelled() -> bool:
 
 func is_dash_cancelled() -> bool:
 	return DefaultInput.is_input_player_button_two_just_released()
-
-func is_start_game_requested() -> bool:
-	if machine_button3.current_state_id() != PlayerEnums.Button3.START_GAME: return false
-	return DefaultInput.is_input_player_button_three_just_pressed()
-
-func is_options_menu_game_requested() -> bool:
-	if machine_button3.current_state_id() != PlayerEnums.Button3.OPTIONS_MENU: return false
-	return DefaultInput.is_input_player_button_three_just_pressed()

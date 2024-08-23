@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://vkd48ynldwrp"]
+
+[ext_resource type="Script" path="res://game/powerups/button3.gd" id="1_1s82n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt1fe"]
+size = Vector2(96, 32)
+
+[node name="PowerUpPause" type="Area2D"]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_1s82n")
+what = 3
+ephemeral = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tt1fe")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -44.0
+offset_top = -21.0
+offset_right = 46.0
+offset_bottom = 17.0
+text = "Pause"

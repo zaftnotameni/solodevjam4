@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://4866d3bmidtx"]
+
+[ext_resource type="Script" path="res://game/powerups/button3.gd" id="1_oimfl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2md4y"]
+custom_solver_bias = 1.0
+size = Vector2(64, 32)
+
+[node name="PowerUpNextLevel" type="Area2D"]
+script = ExtResource("1_oimfl")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -34.0
+offset_top = -20.0
+offset_right = 38.0
+offset_bottom = 18.0
+text = "Next"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2md4y")

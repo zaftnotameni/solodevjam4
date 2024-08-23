@@ -11,6 +11,7 @@ const GROUP := 'player_components'
 @onready var machine := resolve_machine()
 @onready var stats := resolve_stats()
 @onready var input := resolve_input()
+@onready var default_input := resolve_default_input()
 @onready var visuals := resolve_visuals()
 
 func resolve_machine_movement() -> StateMachine: return Resolve.resolve_meta_from(owner, 'machine_type', 'movement')
@@ -22,6 +23,7 @@ func resolve_machine_button3() -> StateMachine: return Resolve.resolve_meta_from
 func resolve_machine() -> PlayerStateMachine: return Resolve.resolve_from(owner, PlayerStateMachine)
 func resolve_stats() -> PlayerStats: return Resolve.resolve_from(owner, PlayerStats)
 func resolve_input() -> PlayerInput: return Resolve.resolve_from(owner, PlayerInput)
+func resolve_default_input() -> DefaultInput: return Resolve.resolve_from(owner, DefaultInput)
 func resolve_visuals() -> PlayerVisuals: return Resolve.resolve_at(owner, PlayerVisuals)
 
 static func resolve(character_scene:CharacterScene) -> PlayerComponents:

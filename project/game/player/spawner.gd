@@ -43,7 +43,7 @@ func spawn():
 
 	if State.transition: await State.first().sig_transition_finished
 
-	var p := scene.instantiate() as Node2D
+	var p := scene.instantiate() as CharacterScene
 	p.global_position = global_position
 
 	match layer:
@@ -53,6 +53,13 @@ func spawn():
 	await p.ready
 	sig_spawn_animation_finished.emit()
 	spawning = false
+
+	match layer:
+		'game':
+			p.process_mode = Node.PROCESS_MODE_INHERIT
+		'menu':
+			p.resolve_components().resolve_machine_direction().transition(PlayerEnums.Direction.LEFT, 'menu')
+			p.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func deactivate():
 	active = false

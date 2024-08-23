@@ -9,6 +9,7 @@ script = ExtResource("1_kf67m")
 layer = -1
 
 [node name="Game" type="CanvasLayer" parent="." groups=["game_layer"]]
+process_mode = 1
 layer = 2
 follow_viewport_enabled = true
 

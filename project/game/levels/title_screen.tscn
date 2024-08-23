@@ -1,14 +1,31 @@
-[gd_scene load_steps=6 format=4 uid="uid://dd2g4xk2jrd3e"]
+[gd_scene load_steps=11 format=4 uid="uid://dd2g4xk2jrd3e"]
 
 [ext_resource type="PackedScene" uid="uid://cr1v0ms0iny16" path="res://game/terrain/foreground_tiles.tscn" id="1_3i78i"]
 [ext_resource type="Script" path="res://game/camera/follow.gd" id="2_c6pha"]
+[ext_resource type="Script" path="res://addons/zaft_game_manager/state/in/title.gd" id="3_1qy8n"]
 [ext_resource type="Script" path="res://game/player/spawner.gd" id="3_t7smi"]
-[ext_resource type="Script" path="res://game/powerups/button3.gd" id="4_rhxjx"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sim8a"]
-size = Vector2(104, 28)
+[ext_resource type="Script" path="res://addons/zaft_game_manager/pause/unpauses.gd" id="4_6ae2c"]
+[ext_resource type="Script" path="res://addons/zaft_game_manager/layers/at/hud.gd" id="5_m8k50"]
+[ext_resource type="Script" path="res://addons/zaft_game_manager/pause/unpauseable.gd" id="5_vscbl"]
+[ext_resource type="PackedScene" uid="uid://owhqpn13v0yi" path="res://game/hud/buttons.tscn" id="6_8m8ko"]
+[ext_resource type="PackedScene" uid="uid://d3o6thyk8qom1" path="res://game/powerups/power_up_start_game.tscn" id="9_b8yg0"]
+[ext_resource type="PackedScene" uid="uid://dlfkm1nvene8n" path="res://game/powerups/power_up_options_menu.tscn" id="10_75bv5"]
 
 [node name="TitleScreen" type="Node2D"]
+
+[node name="AtHUD" type="Node" parent="."]
+script = ExtResource("5_m8k50")
+scene = ExtResource("6_8m8ko")
+
+[node name="StateTitle" type="Node" parent="."]
+script = ExtResource("3_1qy8n")
+wipe_state_stack = true
+
+[node name="Unpauses" type="Node" parent="."]
+script = ExtResource("4_6ae2c")
+
+[node name="Unpauseable" type="Node" parent="."]
+script = ExtResource("5_vscbl")
 
 [node name="ForegroundTiles" parent="." instance=ExtResource("1_3i78i")]
 tile_map_data = PackedByteArray("AAD1/wUAAAAAAAAAAAD2/wUAAAAAAAAAAAD3/wUAAAAAAAAAAAD4/wUAAAAAAAAAAAD5/wUAAAAAAAAAAAD6/wUAAAAAAAAAAAD7/wUAAAAAAAAAAAD8/wUAAAAAAAAAAAD9/wUAAAAAAAAAAAD+/wUAAAAAAAAAAAD//wUAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAKAAQAAAAAAAAAAAALAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAADAAQAAAAAAAAAAAACAAQAAAAAAAAAAAABAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAD//wQAAAAAAAAAAAD+/wQAAAAAAAAAAAD9/wQAAAAAAAAAAAD8/wQAAAAAAAAAAAD7/wQAAAAAAAAAAAD6/wQAAAAAAAAAAAD5/wQAAAAAAAAAAAD4/wQAAAAAAAAAAAD3/wQAAAAAAAAAAAD2/wQAAAAAAAAAAAD1/wQAAAAAAAAAAAD0/wUAAAAAAAAAAAD0/wQAAAAAAAAAAAD0/wMAAAAAAAAAAAD0/wIAAAAAAAAAAAD0/wEAAAAAAAAAAAD0/wAAAAAAAAAAAAD0////AAAAAAAAAAD0//7/AAAAAAAAAAD0//3/AAAAAAAAAAD0//z/AAAAAAAAAAD0//v/AAAAAAAAAAD0//r/AAAAAAAAAADz//r/AAAAAAAAAADz//v/AAAAAAAAAADz//z/AAAAAAAAAADz//3/AAAAAAAAAADz//7/AAAAAAAAAADz////AAAAAAAAAADz/wAAAAAAAAAAAADz/wEAAAAAAAAAAADz/wIAAAAAAAAAAADz/wMAAAAAAAAAAADz/wQAAAAAAAAAAADz/wUAAAAAAAAAAAAMAAUAAAAAAAAAAAAMAAQAAAAAAAAAAAALAAMAAAAAAAAAAAALAAIAAAAAAAAAAAALAAEAAAAAAAAAAAALAP7/AAAAAAAAAAALAP3/AAAAAAAAAAALAPz/AAAAAAAAAAALAPv/AAAAAAAAAAALAPr/AAAAAAAAAAALAPn/AAAAAAAAAAAMAPn/AAAAAAAAAAAMAPr/AAAAAAAAAAAMAPv/AAAAAAAAAAAMAPz/AAAAAAAAAAAMAP3/AAAAAAAAAAAMAP7/AAAAAAAAAAAMAP//AAAAAAAAAAAMAAAAAAAAAAAAAAAMAAEAAAAAAAAAAAAMAAIAAAAAAAAAAAAMAAMAAAAAAAAAAAALAAAAAAAAAAAAAAALAP//AAAAAAAAAADz//n/AAAAAAAAAAD0//n/AAAAAAAAAAA=")
@@ -19,32 +36,31 @@ process_callback = 0
 editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("2_c6pha")
-auto_physics_process = true
 
 [node name="PlayerSpawner" type="Area2D" parent="."]
+position = Vector2(8, 22)
 script = ExtResource("3_t7smi")
 active = true
 layer = "menu"
 
-[node name="PowerUpButton3" type="Area2D" parent="."]
-position = Vector2(-132, 0)
-collision_layer = 16
-collision_mask = 8
-script = ExtResource("4_rhxjx")
-what = 1
+[node name="PowerUpStartGame" parent="." instance=ExtResource("9_b8yg0")]
+position = Vector2(-120, 32)
 
-[node name="Label" type="Label" parent="PowerUpButton3"]
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_right = 40.0
-offset_bottom = 38.0
-text = "Start"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="PowerUpOptionsMenu" parent="." instance=ExtResource("10_75bv5")]
+position = Vector2(104, 32)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PowerUpButton3"]
-position = Vector2(44, 22)
-shape = SubResource("RectangleShape2D_sim8a")
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 16.0
+offset_top = 80.0
+offset_right = 176.0
+offset_bottom = 96.0
+mouse_filter = 2
+color = Color(0.0862745, 0.0784314, 0.223529, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 80.0
+offset_right = 176.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 16
+text = "A Solo game made by ZAFT"

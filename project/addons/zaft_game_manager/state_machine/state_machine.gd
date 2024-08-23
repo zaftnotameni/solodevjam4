@@ -99,11 +99,13 @@ func next_curr_prev():
 	state_curr = state_next
 
 func _ready() -> void:
-	for c:Node in get_children(): disable_processing(c)
+	for c:Node in get_children():
+		c.set_meta('preferred_process_mode', c.process_mode)
+		disable_processing(c)
 
 func enable_processing(n:Node=self):
 	if not n: return
-	n.process_mode = Node.PROCESS_MODE_INHERIT
+	n.process_mode = n.get_meta('preferred_process_mode', Node.PROCESS_MODE_INHERIT)
 	n.set_physics_process(not Engine.is_editor_hint() and machine_mode == MACHINE_MODE.Physics)
 	n.set_process(not Engine.is_editor_hint() and machine_mode == MACHINE_MODE.Normal)
 	n.set_process_input(true)

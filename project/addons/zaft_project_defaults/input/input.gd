@@ -9,7 +9,6 @@ static func all() -> Array: return tree().get_nodes_in_group(GROUP)
 func _unhandled_input(event: InputEvent) -> void:
 	for ti:String in tracked_inputs:
 		var n:String = ti.trim_prefix('last_')
-		printt(DefaultInput['is_event_%s' % n], DefaultInput['is_event_%s' % n].call(event))
 		if DefaultInput['is_event_%s' % n].call(event):
 			set(ti, 0)
 
@@ -76,7 +75,6 @@ var last_player_interact_pressed : float = -1
 var last_player_use_pressed : float = -1
 var last_player_button_one_pressed : float = -1
 var last_player_button_two_pressed : float = -1
-var last_player_button_three_pressed : float = -1
 
 var last_pause_released : float = -1
 var last_unpause_released : float = -1
@@ -95,7 +93,6 @@ var last_player_interact_released : float = -1
 var last_player_use_released : float = -1
 var last_player_button_one_released : float = -1
 var last_player_button_two_released : float = -1
-var last_player_button_three_released : float = -1
 
 static func is_event_pause_pressed(event:InputEvent) -> bool: return event.is_action_pressed('pause')
 static func is_event_unpause_pressed(event:InputEvent) -> bool: return event.is_action_pressed('unpause')
@@ -114,8 +111,6 @@ static func is_event_player_interact_pressed(event:InputEvent) -> bool: return e
 static func is_event_player_use_pressed(event:InputEvent) -> bool: return event.is_action_pressed('player_use')
 static func is_event_player_button_one_pressed(event:InputEvent) -> bool: return event.is_action_pressed('player_button_one')
 static func is_event_player_button_two_pressed(event:InputEvent) -> bool: return event.is_action_pressed('player_button_two')
-static func is_event_player_button_three_pressed(event:InputEvent) -> bool:
-	return is_event_player_button_one_pressed(event) and is_event_player_button_two_pressed(event)
 
 static func is_event_pause_released(event:InputEvent) -> bool: return event.is_action_released('pause')
 static func is_event_unpause_released(event:InputEvent) -> bool: return event.is_action_released('unpause')
@@ -134,8 +129,6 @@ static func is_event_player_interact_released(event:InputEvent) -> bool: return 
 static func is_event_player_use_released(event:InputEvent) -> bool: return event.is_action_released('player_use')
 static func is_event_player_button_one_released(event:InputEvent) -> bool: return event.is_action_released('player_button_one')
 static func is_event_player_button_two_released(event:InputEvent) -> bool: return event.is_action_released('player_button_two')
-static func is_event_player_button_three_released(event:InputEvent) -> bool:
-	return is_event_player_button_one_released(event) or is_event_player_button_two_released(event)
 
 static func is_input_pause_just_released() -> bool: return Input.is_action_just_released('pause')
 static func is_input_unpause_just_released() -> bool: return Input.is_action_just_released('unpause')
@@ -154,8 +147,6 @@ static func is_input_player_interact_just_released() -> bool: return Input.is_ac
 static func is_input_player_use_just_released() -> bool: return Input.is_action_just_released('player_use')
 static func is_input_player_button_one_just_released() -> bool: return Input.is_action_just_released('player_button_one')
 static func is_input_player_button_two_just_released() -> bool: return Input.is_action_just_released('player_button_two')
-static func is_input_player_button_three_just_released() -> bool:
-	return is_input_player_button_one_just_released() or is_input_player_button_two_just_released()
 
 static func is_input_pause_just_pressed() -> bool: return Input.is_action_just_pressed('pause')
 static func is_input_unpause_just_pressed() -> bool: return Input.is_action_just_pressed('unpause')
@@ -174,8 +165,6 @@ static func is_input_player_interact_just_pressed() -> bool: return Input.is_act
 static func is_input_player_use_just_pressed() -> bool: return Input.is_action_just_pressed('player_use')
 static func is_input_player_button_one_just_pressed() -> bool: return Input.is_action_just_pressed('player_button_one')
 static func is_input_player_button_two_just_pressed() -> bool: return Input.is_action_just_pressed('player_button_two')
-static func is_input_player_button_three_just_pressed() -> bool:
-	return is_input_player_button_one_just_pressed() or is_input_player_button_two_just_pressed()
 
 static func is_input_pause_pressed() -> bool: return Input.is_action_pressed('pause')
 static func is_input_unpause_pressed() -> bool: return Input.is_action_pressed('unpause')
@@ -194,5 +183,3 @@ static func is_input_player_interact_pressed() -> bool: return Input.is_action_p
 static func is_input_player_use_pressed() -> bool: return Input.is_action_pressed('player_use')
 static func is_input_player_button_one_pressed() -> bool: return Input.is_action_pressed('player_button_one')
 static func is_input_player_button_two_pressed() -> bool: return Input.is_action_pressed('player_button_two')
-static func is_input_player_button_three_pressed() -> bool:
-	return is_input_player_button_one_pressed() or is_input_player_button_two_pressed()

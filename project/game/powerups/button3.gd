@@ -8,6 +8,7 @@ func _ready() -> void:
 func on_character_enter(character:CharacterScene):
 	var machine := character.resolve_components().resolve_machine_button3()
 	machine.transition(what, 'button-3-changed')
+	if ephemeral: queue_free()
 
 func on_body_entered(body:Node2D):
 	if body is CharacterScene: on_character_enter(body)

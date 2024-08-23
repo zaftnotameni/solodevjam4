@@ -1,16 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://byhr11mj3nvel"]
+[gd_scene load_steps=3 format=3 uid="uid://byhr11mj3nvel"]
 
 [ext_resource type="Script" path="res://addons/zaft_game_manager/layers/at/menu.gd" id="1_xearx"]
 [ext_resource type="PackedScene" uid="uid://dd2g4xk2jrd3e" path="res://game/levels/title_screen.tscn" id="2_4kgxd"]
-[ext_resource type="Script" path="res://addons/zaft_game_manager/layers/at/hud.gd" id="2_calal"]
-[ext_resource type="PackedScene" uid="uid://owhqpn13v0yi" path="res://game/hud/buttons.tscn" id="4_c4xxi"]
 
 [node name="Main" type="Node2D"]
 
 [node name="AtMenu" type="Node" parent="."]
 script = ExtResource("1_xearx")
 scene = ExtResource("2_4kgxd")
-
-[node name="AtHUD" type="Node" parent="."]
-script = ExtResource("2_calal")
-scene = ExtResource("4_c4xxi")

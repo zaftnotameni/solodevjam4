@@ -6,9 +6,11 @@ class_name B2ChangeDirection extends Node2D
 @onready var machine_direction := components.resolve_machine_direction()
 @onready var stats := components.resolve_stats()
 @onready var input := components.resolve_input()
+@onready var default_input := components.resolve_default_input()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if DefaultInput.is_input_player_button_one_pressed(): return
+	if default_input.last_player_button_one_pressed < 0.2: return
+
 	if DefaultInput.is_event_player_button_two_pressed(event):
 		match machine_direction.current_state_id():
 			PlayerEnums.Direction.LEFT:
