@@ -15,6 +15,7 @@ func on_state_exit(_next:Node=null) -> void:
 	is_dash_cancelled = false
 
 func on_state_enter(_prev:Node=null) -> void:
+	Sfx.dash()
 	elapsed = 0.0
 	is_dash_cancelled = false
 

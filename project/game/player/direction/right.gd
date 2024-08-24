@@ -10,6 +10,9 @@ class_name PlayerDirectionRight extends Node2D
 
 @onready var wall_in_front := %CastDetectWallRight
 
+func on_state_enter(_prev:Node=null) -> void:
+	Sfx.flip()
+
 func _physics_process(_delta: float) -> void:
 	visuals.scale.x = 1
 	if wall_in_front.is_colliding():

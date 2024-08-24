@@ -25,6 +25,12 @@ func current_state_name() -> String:
 func current_state_id() -> int:
 	return state_id_of(state_curr)
 
+func previous_state_name() -> String:
+	return state_name_of(state_prev)
+
+func previous_state_id() -> int:
+	return state_id_of(state_prev)
+
 func state_name_of(n:Node) -> String:
 	return n.get_meta('state_name', n.name)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://qlcfs3xm1tnu"]
+[gd_scene load_steps=15 format=4 uid="uid://qlcfs3xm1tnu"]
 
 [ext_resource type="PackedScene" uid="uid://cr1v0ms0iny16" path="res://game/terrain/foreground_tiles.tscn" id="1_eviuk"]
 [ext_resource type="PackedScene" uid="uid://l6euokb2as41" path="res://game/decoration/background_decoration.tscn" id="1_hgds3"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://4866d3bmidtx" path="res://game/powerups/power_up_next_level.tscn" id="9_6o4tw"]
 [ext_resource type="PackedScene" uid="uid://cyxqktr555eq4" path="res://game/decoration/level_name.tscn" id="10_uwkkh"]
 [ext_resource type="PackedScene" uid="uid://b3tbkgn7iyskp" path="res://game/powerups/power_up_dash.tscn" id="11_deco1"]
+[ext_resource type="PackedScene" uid="uid://bupu3rc88jh50" path="res://game/levels/level_003.tscn" id="11_mhyad"]
 [ext_resource type="PackedScene" uid="uid://bnln3d06qe2ld" path="res://game/decoration/level_dark_light.tscn" id="13_cgeq5"]
 
 [node name="Level002" type="Node2D"]
@@ -48,6 +49,7 @@ position = Vector2(-60, 132)
 
 [node name="PowerUpNextLevel" parent="." instance=ExtResource("9_6o4tw")]
 position = Vector2(172, -100)
+scene = ExtResource("11_mhyad")
 
 [node name="LevelName" parent="." instance=ExtResource("10_uwkkh")]
 offset_left = -96.0

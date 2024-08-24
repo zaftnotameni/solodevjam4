@@ -25,6 +25,8 @@ func on_state_enter(_prev:Node=null) -> void:
 	is_jump_cancelled = false
 	is_jump = false
 	is_dash = false
+	if machine_movement.previous_state_id() != PlayerEnums.Movement.COY:
+		Sfx.land()
 
 func apply_gravity(delta:float) -> void:
 	character.velocity.y += stats.jump_gravity_down * delta
