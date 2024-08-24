@@ -35,7 +35,6 @@ func start_game():
 	Layers.layer_game().add_child.call_deferred(level001)
 
 func wipe_all(children:Array=[]):
-	print(children)
 	for child in children:
 		print_verbose('deleting: ', child.get_path())
 		child.queue_free()
