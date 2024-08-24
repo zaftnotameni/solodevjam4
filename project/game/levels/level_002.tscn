@@ -48,7 +48,7 @@ visible = false
 position = Vector2(-60, 132)
 
 [node name="PowerUpNextLevel" parent="." instance=ExtResource("9_6o4tw")]
-position = Vector2(172, -100)
+position = Vector2(168, -88)
 scene = ExtResource("11_mhyad")
 
 [node name="LevelName" parent="." instance=ExtResource("10_uwkkh")]

@@ -16,6 +16,8 @@ func on_state_exit(_next:Node=null) -> void:
 
 func on_state_enter(_prev:Node=null) -> void:
 	Sfx.dash()
+	if CameraFollowsPlayer.first():
+		CameraFollowsPlayer.first().trauma_request(0.2, 0.2)
 	elapsed = 0.0
 	is_dash_cancelled = false
 

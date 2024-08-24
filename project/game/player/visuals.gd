@@ -2,17 +2,22 @@ class_name PlayerVisuals extends Node2D
 
 @onready var party_dash_start : CPUParticles2D = %PartyDashStart
 @onready var party_dash_going : CPUParticles2D = %PartyDashGoing
+@onready var party_land : CPUParticles2D = %PartyLand
+@onready var party_jump : CPUParticles2D = %PartyJump
 @onready var base_light : PointLight2D = %BaseLight
 
 func on_animation_changed():
 	if body_animated_sprite.animation != &'dsh':
 		party_dash_start.emitting = false
 		party_dash_going.emitting = false
+		party_land.emitting = false
+		party_jump.emitting = false
 		base_light.texture_scale = 1.0
 		base_light.energy = 1.0
 
 func animate_asc():
 	body_animated_sprite.play('asc')
+	party_jump.emitting = true
 	tween_start()
 	t.tween_property(body_animated_sprite, 'scale', Vector2(1.1, 0.9), 0.1)
 	t.tween_property(body_animated_sprite, 'scale', Vector2(0.9, 1.1), 0.1)
@@ -39,6 +44,7 @@ func animate_coy():
 
 func animate_gnd():
 	animate_coy_or_gnd()
+	party_land.emitting = true
 	tween_start()
 	t.tween_property(body_animated_sprite, 'scale', Vector2(1.1, 0.9), 0.1)
 	t.tween_property(body_animated_sprite, 'scale', Vector2(1.0, 1.0), 0.1)

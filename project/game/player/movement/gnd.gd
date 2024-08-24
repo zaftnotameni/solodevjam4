@@ -27,6 +27,8 @@ func on_state_enter(_prev:Node=null) -> void:
 	is_dash = false
 	if machine_movement.previous_state_id() != PlayerEnums.Movement.COY:
 		Sfx.land()
+		if CameraFollowsPlayer.first():
+			CameraFollowsPlayer.first().trauma_request(0.1, 0.2)
 
 func apply_gravity(delta:float) -> void:
 	character.velocity.y += stats.jump_gravity_down * delta
