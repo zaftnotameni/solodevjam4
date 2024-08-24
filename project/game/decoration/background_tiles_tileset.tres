@@ -1,0 +1,77 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://drgo0fmp0oekk"]
+
+[ext_resource type="Texture2D" uid="uid://dkba3bonmbwwx" path="res://assets/aseprite/tiles.png" id="1_uwdt6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_udpbx"]
+texture = ExtResource("1_uwdt6")
+texture_region_size = Vector2i(8, 8)
+0:59/0 = 0
+0:59/0/terrain_set = 0
+0:59/0/terrain = 0
+0:59/0/terrains_peering_bit/bottom_right_corner = 0
+0:59/0/terrains_peering_bit/bottom_left_corner = 0
+0:59/0/terrains_peering_bit/top_left_corner = 0
+0:59/0/terrains_peering_bit/top_right_corner = 0
+1:59/0 = 0
+1:59/0/terrain_set = 0
+1:59/0/terrain = 0
+1:59/0/terrains_peering_bit/bottom_right_corner = 0
+1:59/0/terrains_peering_bit/bottom_left_corner = 0
+1:59/0/terrains_peering_bit/top_left_corner = 0
+1:59/0/terrains_peering_bit/top_right_corner = 0
+2:59/0 = 0
+2:59/0/terrain_set = 0
+2:59/0/terrain = 0
+2:59/0/terrains_peering_bit/bottom_right_corner = 0
+2:59/0/terrains_peering_bit/bottom_left_corner = 0
+2:59/0/terrains_peering_bit/top_left_corner = 0
+2:59/0/terrains_peering_bit/top_right_corner = 0
+3:59/0 = 0
+3:59/0/terrain_set = 0
+3:59/0/terrain = 0
+3:59/0/terrains_peering_bit/bottom_right_corner = 0
+3:59/0/terrains_peering_bit/bottom_left_corner = 0
+3:59/0/terrains_peering_bit/top_left_corner = 0
+3:59/0/terrains_peering_bit/top_right_corner = 0
+4:59/0 = 0
+4:59/0/terrain_set = 0
+4:59/0/terrain = 0
+4:59/0/terrains_peering_bit/bottom_right_corner = 0
+4:59/0/terrains_peering_bit/bottom_left_corner = 0
+4:59/0/terrains_peering_bit/top_left_corner = 0
+4:59/0/terrains_peering_bit/top_right_corner = 0
+5:59/0 = 0
+5:59/0/terrain_set = 0
+5:59/0/terrain = 0
+5:59/0/terrains_peering_bit/bottom_right_corner = 0
+5:59/0/terrains_peering_bit/bottom_left_corner = 0
+5:59/0/terrains_peering_bit/top_left_corner = 0
+5:59/0/terrains_peering_bit/top_right_corner = 0
+6:59/0 = 0
+6:59/0/terrain_set = 0
+6:59/0/terrain = 0
+6:59/0/terrains_peering_bit/bottom_right_corner = 0
+6:59/0/terrains_peering_bit/bottom_left_corner = 0
+6:59/0/terrains_peering_bit/top_left_corner = 0
+6:59/0/terrains_peering_bit/top_right_corner = 0
+7:59/0 = 0
+7:59/0/terrain_set = 0
+7:59/0/terrain = 0
+7:59/0/terrains_peering_bit/bottom_right_corner = 0
+7:59/0/terrains_peering_bit/bottom_left_corner = 0
+7:59/0/terrains_peering_bit/top_left_corner = 0
+7:59/0/terrains_peering_bit/top_right_corner = 0
+8:59/0 = 0
+8:59/0/terrain_set = 0
+8:59/0/terrain = 0
+8:59/0/terrains_peering_bit/bottom_right_corner = 0
+8:59/0/terrains_peering_bit/bottom_left_corner = 0
+8:59/0/terrains_peering_bit/top_left_corner = 0
+8:59/0/terrains_peering_bit/top_right_corner = 0
+
+[resource]
+tile_size = Vector2i(8, 8)
+terrain_set_0/mode = 1
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_udpbx")

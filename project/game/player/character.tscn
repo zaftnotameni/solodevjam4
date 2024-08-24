@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bal7ofwbeschm"]
+[gd_scene load_steps=37 format=3 uid="uid://bal7ofwbeschm"]
 
 [ext_resource type="Script" path="res://game/player/character_scene.gd" id="1_y1gjn"]
 [ext_resource type="Script" path="res://game/player/components.gd" id="2_54hwg"]
@@ -32,6 +32,41 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_365dg"]
 size = Vector2(8, 12)
+
+[sub_resource type="Gradient" id="Gradient_qhrrw"]
+offsets = PackedFloat32Array(0, 0.559767, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.0816327, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lxoa1"]
+gradient = SubResource("Gradient_qhrrw")
+width = 16
+height = 16
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_swulp"]
+gradient = SubResource("Gradient_qhrrw")
+width = 16
+height = 16
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_wanrw"]
+offsets = PackedFloat32Array(0, 0.780282, 1)
+colors = PackedColorArray(1, 1, 1, 0.858824, 1, 1, 1, 0.0304226, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0uakx"]
+gradient = SubResource("Gradient_wanrw")
+width = 256
+height = 256
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kjcek"]
+polygon = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 
 [node name="Character" type="CharacterBody2D"]
 collision_layer = 8
@@ -163,3 +198,55 @@ unique_name_in_owner = true
 sprite_frames = ExtResource("2_yd0lo")
 animation = &"dsh"
 autoplay = "walk"
+
+[node name="PartyDashStart" type="CPUParticles2D" parent="Visuals"]
+unique_name_in_owner = true
+position = Vector2(-8, 0)
+emitting = false
+amount = 64
+lifetime = 0.4
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+texture = SubResource("GradientTexture2D_lxoa1")
+direction = Vector2(-1, 0)
+gravity = Vector2(0, 0)
+initial_velocity_min = 32.0
+initial_velocity_max = 64.0
+linear_accel_min = -16.0
+linear_accel_max = 16.0
+tangential_accel_min = -16.0
+tangential_accel_max = 16.0
+color = Color(0.74902, 0.152941, 0.494118, 1)
+
+[node name="PartyDashGoing" type="CPUParticles2D" parent="Visuals"]
+unique_name_in_owner = true
+position = Vector2(-12, 0)
+emitting = false
+amount = 16
+lifetime = 0.4
+randomness = 1.0
+lifetime_randomness = 1.0
+texture = SubResource("GradientTexture2D_swulp")
+direction = Vector2(-1, 0)
+gravity = Vector2(0, 0)
+initial_velocity_min = 32.0
+initial_velocity_max = 64.0
+linear_accel_min = -16.0
+linear_accel_max = 16.0
+tangential_accel_min = -16.0
+tangential_accel_max = 16.0
+color = Color(0.74902, 0.152941, 0.494118, 1)
+
+[node name="BaseLight" type="PointLight2D" parent="Visuals"]
+unique_name_in_owner = true
+color = Color(0.345098, 0.0588235, 0.54902, 1)
+range_layer_min = -6
+range_layer_max = 6
+texture = SubResource("GradientTexture2D_0uakx")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Visuals"]
+occluder = SubResource("OccluderPolygon2D_kjcek")
+occluder_light_mask = 4

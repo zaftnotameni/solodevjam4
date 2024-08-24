@@ -1,5 +1,16 @@
 class_name PlayerVisuals extends Node2D
 
+@onready var party_dash_start : CPUParticles2D = %PartyDashStart
+@onready var party_dash_going : CPUParticles2D = %PartyDashGoing
+@onready var base_light : PointLight2D = %BaseLight
+
+func on_animation_changed():
+	if body_animated_sprite.animation != &'dsh':
+		party_dash_start.emitting = false
+		party_dash_going.emitting = false
+		base_light.texture_scale = 1.0
+		base_light.energy = 1.0
+
 func animate_asc():
 	body_animated_sprite.play('asc')
 	tween_start()
@@ -9,6 +20,10 @@ func animate_asc():
 
 func animate_dsh():
 	body_animated_sprite.play('dsh')
+	party_dash_start.emitting = true
+	party_dash_going.emitting = true
+	base_light.texture_scale = 1.01
+	base_light.energy = 1.05
 
 func animate_dsc():
 	body_animated_sprite.play('dsc')
@@ -40,6 +55,7 @@ func on_movement_state_machine_transition(_curr:Node=null,_prev:Node=null):
 
 func _ready() -> void:
 	machine_movement.sig_state_did_transition.connect(on_movement_state_machine_transition)
+	body_animated_sprite.animation_changed.connect(on_animation_changed)
 
 func _exit_tree() -> void:
 	tween_kill()

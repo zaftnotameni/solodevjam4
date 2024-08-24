@@ -10,6 +10,7 @@ func on_character_enter(character:CharacterScene):
 	var machine := character.resolve_components().resolve_machine_button3()
 	machine.transition(what, 'button-3-changed')
 	if ephemeral: queue_free()
+	if scene: await go_to_next_level()
 
 func on_body_entered(body:Node2D):
 	if body is CharacterScene: on_character_enter(body)
@@ -29,15 +30,17 @@ func go_to_next_level():
 
 	for ft:ForegroundTilesScene in ForegroundTilesScene.all():
 		for coords:Vector2i in ft.get_used_cells():
+			print_verbose('erase coords %s' % coords)
 			tween.parallel().tween_callback(ft.erase_cell.bind(coords)).set_delay(randf_range(0.05, 0.3))
 
-	tween.tween_callback(wipe_all.bind(children_to_wipe))
-	
-	await tween.finished
+	tween.chain().tween_interval(0.1)
+
+	for child in children_to_wipe:
+		tween.tween_callback(child.queue_free)
 
 	Layers.layer_game().add_child.call_deferred(next_level)
+	if owner and not owner.is_queued_for_deletion(): owner.queue_free()
 
-func wipe_all(children:Array=[]):
-	for child in children:
-		print_verbose('deleting: ', child.get_path())
-		child.queue_free()
+	tween.tween_callback(State.mark_as_game).set_delay(0.1)
+	
+	await tween.finished

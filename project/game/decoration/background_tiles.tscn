@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://0mexkh4hdsmu"]
+
+[ext_resource type="Script" path="res://game/decoration/background_tiles_scene.gd" id="1_0g08e"]
+[ext_resource type="TileSet" uid="uid://drgo0fmp0oekk" path="res://game/decoration/background_tiles_tileset.tres" id="1_q18h4"]
+
+[node name="BackgroundTiles" type="TileMapLayer"]
+tile_set = ExtResource("1_q18h4")
+script = ExtResource("1_0g08e")

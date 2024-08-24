@@ -50,9 +50,10 @@ func on_player_exit():
 func _ready() -> void:
 	State.first().sig_player_ready.connect(on_player_ready)
 	State.first().sig_player_exit.connect(on_player_exit)
-	follow_target = CharacterScene.first()
-	setup_boundaries()
 	make_current()
+	await get_tree().create_timer(0.1).timeout
+	on_player_ready()
+	setup_boundaries.call_deferred()
 
 func do_follow_target(n:Node2D,d:float) -> void:
 	global_position = global_position.move_toward(n.global_position, d * follow_factor)
@@ -98,7 +99,7 @@ func setup_boundaries():
 		min_y = min(min_y, glopos.y)
 		max_x = max(max_x, glopos.x)
 		max_y = max(max_y, glopos.y)
-	limit_left = roundi(min_x - 16 * 1)
-	limit_right = roundi(max_x + 16 * 1)
-	limit_top = roundi(min_y - 16 * 1)
-	limit_bottom = roundi(max_y + 16 * 1)
+	limit_left = roundi(min_x - 16 * 0.25)
+	limit_right = roundi(max_x + 16 * 0.25)
+	limit_top = roundi(min_y - 16 * 0.25)
+	limit_bottom = roundi(max_y + 16 * 0.25)

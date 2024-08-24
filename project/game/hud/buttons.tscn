@@ -4,14 +4,29 @@
 [ext_resource type="Script" path="res://game/hud/label_for_button2.gd" id="2_fyu2u"]
 [ext_resource type="Script" path="res://game/hud/label_for_button3.gd" id="3_ho52w"]
 
-[node name="Buttons" type="GridContainer"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 80.0
-grow_horizontal = 2
-columns = 3
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 57.0
+offset_bottom = 138.0
+size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.0862745, 0.0784314, 0.223529, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Buttons" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/h_separation = 8
+columns = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -19,23 +34,7 @@ text = "A"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label6" type="Label" parent="."]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 6
-text = "B"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 6
-text = "A + B"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label3" type="Label" parent="."]
+[node name="Label3" type="Label" parent="MarginContainer/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -43,7 +42,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_y6n4g")
 
-[node name="Label4" type="Label" parent="."]
+[node name="Label6" type="Label" parent="MarginContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "B"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="MarginContainer/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -51,7 +58,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_fyu2u")
 
-[node name="Label5" type="Label" parent="."]
+[node name="Label2" type="Label" parent="MarginContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "AB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="MarginContainer/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6

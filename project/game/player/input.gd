@@ -15,20 +15,26 @@ func is_button_three_pressed(event:InputEvent=null) -> bool:
 		not DefaultInput.is_event_player_button_one_pressed(event)
 	): return false
 
-	var tolerance : float = 0.2
+	var tolerance : float = 0.1
 	if default_input.last_player_button_one_pressed > tolerance: return false
 	if default_input.last_player_button_two_pressed > tolerance: return false
-	#if default_input.last_player_button_one_released < tolerance: return false
-	#if default_input.last_player_button_two_released < tolerance: return false
+	if default_input.last_player_button_one_released < tolerance: return false
+	if default_input.last_player_button_two_released < tolerance: return false
 	return true
 
 func is_jump_requested() -> bool:
-	if DefaultInput.is_input_player_button_two_pressed(): return false
+	if (
+		DefaultInput.is_input_player_button_two_pressed() and 
+		machine_button3.current_state_id() != PlayerEnums.Button3.NOTHING
+	): return false
 	if machine_button1.current_state_id() != PlayerEnums.Button1.JUMP: return false
 	return DefaultInput.is_input_player_button_one_just_pressed()
 
 func is_dash_requested() -> bool:
-	if DefaultInput.is_input_player_button_one_pressed(): return false
+	if (
+		DefaultInput.is_input_player_button_one_pressed() and 
+		machine_button3.current_state_id() != PlayerEnums.Button3.NOTHING
+	): return false
 	if machine_button2.current_state_id() != PlayerEnums.Button2.DASH: return false
 	return DefaultInput.is_input_player_button_two_just_pressed()
 
