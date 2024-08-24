@@ -176,6 +176,7 @@ player_button_two={
 2d_physics/layer_7="power_up_1"
 2d_physics/layer_8="power_up_0"
 2d_physics/layer_9="vent"
+2d_physics/layer_10="audio_slider"
 
 [physics]
 

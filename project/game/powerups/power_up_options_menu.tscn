@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlfkm1nvene8n"]
+[gd_scene load_steps=4 format=3 uid="uid://dlfkm1nvene8n"]
 
 [ext_resource type="Script" path="res://game/powerups/button3.gd" id="1_cfmxi"]
+[ext_resource type="Script" path="res://game/powerups/options_menu_setter.gd" id="2_afjbp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne0nl"]
 size = Vector2(128, 32)
@@ -29,3 +30,6 @@ vertical_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ne0nl")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("2_afjbp")

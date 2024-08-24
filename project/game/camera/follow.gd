@@ -48,8 +48,9 @@ func on_player_exit():
 	follow_target = null
 
 func _ready() -> void:
-	State.first().sig_player_ready.connect(on_player_ready)
-	State.first().sig_player_exit.connect(on_player_exit)
+	if State.first():
+		State.first().sig_player_ready.connect(on_player_ready)
+		State.first().sig_player_exit.connect(on_player_exit)
 	make_current()
 	await get_tree().create_timer(0.1).timeout
 	on_player_ready()

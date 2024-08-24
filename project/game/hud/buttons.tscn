@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://owhqpn13v0yi"]
+[gd_scene load_steps=3 format=3 uid="uid://owhqpn13v0yi"]
 
 [ext_resource type="Script" path="res://game/hud/label_for_button1.gd" id="1_y6n4g"]
 [ext_resource type="Script" path="res://game/hud/label_for_button2.gd" id="2_fyu2u"]
-[ext_resource type="Script" path="res://game/hud/label_for_button3.gd" id="3_ho52w"]
 
 [node name="PanelContainer" type="PanelContainer"]
 offset_right = 57.0
@@ -57,19 +56,3 @@ size_flags_vertical = 6
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_fyu2u")
-
-[node name="Label2" type="Label" parent="MarginContainer/Buttons"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 6
-text = "AB"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label5" type="Label" parent="MarginContainer/Buttons"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 6
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("3_ho52w")

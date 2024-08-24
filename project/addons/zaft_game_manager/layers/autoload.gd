@@ -21,7 +21,12 @@ static func clear_layer(layer:CanvasLayer):
 			if child and not child.is_queued_for_deletion():
 				child.queue_free()
 
-static func tree() -> SceneTree: return Engine.get_main_loop()
-
 func _enter_tree() -> void:
+	add_to_group(GROUP)
 	process_mode = ProcessMode.PROCESS_MODE_INHERIT if Engine.is_editor_hint() else ProcessMode.PROCESS_MODE_ALWAYS
+
+const GROUP := 'layer_autoload'
+
+static func tree() -> SceneTree: return Engine.get_main_loop()
+static func first() -> Layers: return tree().get_first_node_in_group(GROUP)
+static func all() -> Array: return tree().get_nodes_in_group(GROUP)

@@ -1,0 +1,111 @@
+[gd_scene load_steps=20 format=4 uid="uid://gwhonwbqxfua"]
+
+[ext_resource type="Script" path="res://game/levels/level_tooler.gd" id="1_gkla0"]
+[ext_resource type="PackedScene" uid="uid://l6euokb2as41" path="res://game/decoration/background_decoration.tscn" id="2_6l03h"]
+[ext_resource type="PackedScene" uid="uid://cr1v0ms0iny16" path="res://game/terrain/foreground_tiles.tscn" id="3_ajbeb"]
+[ext_resource type="PackedScene" uid="uid://cyxqktr555eq4" path="res://game/decoration/level_name.tscn" id="6_orsic"]
+[ext_resource type="PackedScene" uid="uid://dd2g4xk2jrd3e" path="res://game/levels/title_screen.tscn" id="6_wwat2"]
+[ext_resource type="PackedScene" uid="uid://4866d3bmidtx" path="res://game/powerups/power_up_next_level.tscn" id="8_vs8ss"]
+[ext_resource type="PackedScene" uid="uid://bnln3d06qe2ld" path="res://game/decoration/level_dark_light.tscn" id="10_knlm2"]
+[ext_resource type="Script" path="res://game/player/spawner.gd" id="11_cq2l0"]
+[ext_resource type="PackedScene" uid="uid://bal7ofwbeschm" path="res://game/player/character.tscn" id="12_xhibg"]
+[ext_resource type="Script" path="res://game/camera/follow.gd" id="13_u8mwg"]
+[ext_resource type="Script" path="res://addons/zaft_game_manager/state/in/game.gd" id="14_0oiyk"]
+[ext_resource type="Script" path="res://game/sound/change_volume_controller.gd" id="15_681h7"]
+[ext_resource type="Script" path="res://addons/zaft_game_manager/pause/unpauses.gd" id="15_px2ly"]
+[ext_resource type="Script" path="res://addons/zaft_game_manager/layers/at/hud.gd" id="16_fjsry"]
+[ext_resource type="PackedScene" uid="uid://owhqpn13v0yi" path="res://game/hud/buttons.tscn" id="17_2bmjo"]
+[ext_resource type="PackedScene" uid="uid://cguvlukv8j1qd" path="res://addons/zaft_game_manager/audio/ui/bgm_audio_slider.tscn" id="18_jc5na"]
+[ext_resource type="PackedScene" uid="uid://c3efwrtyxp0yn" path="res://addons/zaft_game_manager/audio/ui/sfx_audio_slider.tscn" id="19_cmyit"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n53tt"]
+size = Vector2(100, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pffiy"]
+size = Vector2(100, 24)
+
+[node name="OptionsScreen" type="Node2D"]
+
+[node name="LevelTooler" type="Node" parent="."]
+script = ExtResource("1_gkla0")
+
+[node name="Background" parent="." instance=ExtResource("2_6l03h")]
+metadata/created_via_tool_script = true
+
+[node name="Foreground" parent="." instance=ExtResource("3_ajbeb")]
+tile_map_data = PackedByteArray("AAAKAAYAAAACAAIAAAAKAAUAAAALAAAAAAAKAAQAAAALAAAAAAAKAAMAAAACAAAAAAAJAAYAAAACAAIAAAAJAAUAAAALAAAAAAAJAAQAAAACAAEAAAAJAAMAAAACAAAAAAAIAAYAAAACAAIAAAAIAAUAAAALAAAAAAAIAAQAAAALAAAAAAAIAAMAAAACAAAAAAAHAAYAAAACAAIAAAAHAAUAAAACAAEAAAAHAAQAAAALAAAAAAAHAAMAAAACAAAAAAAGAAYAAAACAAIAAAAGAAUAAAALAAAAAAAGAAQAAAALAAAAAAAGAAMAAAACAAAAAAAFAAYAAAACAAIAAAAFAAUAAAALAAAAAAAFAAQAAAALAAAAAAAFAAMAAAACAAAAAAAEAAYAAAACAAIAAAAEAAUAAAACAAEAAAAEAAQAAAALAAAAAAAEAAMAAAACAAAAAAADAAYAAAACAAIAAAADAAUAAAALAAAAAAADAAQAAAALAAAAAAADAAMAAAACAAAAAAACAAYAAAACAAIAAAACAAUAAAALAAAAAAACAAQAAAACAAEAAAACAAMAAAACAAAAAAABAAYAAAACAAIAAAABAAUAAAACAAEAAAABAAQAAAALAAAAAAABAAMAAAACAAAAAAAAAAYAAAACAAIAAAAAAAUAAAACAAEAAAAAAAQAAAALAAAAAAAAAAMAAAACAAAAAAD//wYAAAACAAIAAAD//wUAAAACAAEAAAD//wQAAAACAAEAAAD//wMAAAACAAAAAAD+/wYAAAACAAIAAAD+/wUAAAALAAAAAAD+/wQAAAACAAEAAAD+/wMAAAACAAAAAAD9/wYAAAACAAIAAAD9/wUAAAACAAEAAAD9/wQAAAACAAEAAAD9/wMAAAACAAAAAAD8/wYAAAACAAIAAAD8/wUAAAACAAEAAAD8/wQAAAALAAAAAAD8/wMAAAACAAAAAAD7/wYAAAACAAIAAAD7/wUAAAACAAEAAAD7/wQAAAACAAEAAAD7/wMAAAACAAAAAAD6/wYAAAACAAIAAAD6/wUAAAALAAAAAAD6/wQAAAACAAEAAAD6/wMAAAACAAAAAAD5/wYAAAACAAIAAAD5/wUAAAALAAAAAAD5/wQAAAALAAAAAAD5/wMAAAACAAAAAAD4/wYAAAACAAIAAAD4/wUAAAALAAAAAAD4/wQAAAALAAAAAAD4/wMAAAACAAAAAAD3/wYAAAACAAIAAAD3/wUAAAALAAAAAAD3/wQAAAACAAEAAAD3/wMAAAACAAAAAAD2/wYAAAACAAIAAAD2/wUAAAALAAAAAAD2/wQAAAALAAAAAAD2/wMAAAACAAAAAAD1/wYAAAACAAIAAAD1/wUAAAALAAAAAAD1/wQAAAACAAEAAAD1/wMAAAACAAAAAAD0/wYAAAACAAIAAAD0/wUAAAALAAAAAAD0/wQAAAALAAAAAAD0/wMAAAAGAAIAAAAOAAYAAAADAAIAAAAOAAUAAAADAAEAAAAOAAQAAAADAAEAAAAOAAMAAAADAAEAAAAOAAIAAAADAAEAAAAOAAEAAAADAAEAAAAOAAAAAAADAAEAAAAOAP//AAADAAEAAAAOAP7/AAADAAEAAAAOAP3/AAADAAEAAAAOAPz/AAADAAEAAAAOAPv/AAADAAEAAAAOAPr/AAADAAEAAAAOAPn/AAADAAAAAAANAAYAAAACAAIAAAANAAUAAAACAAEAAAANAAQAAAALAAAAAAANAAMAAAACAAEAAAANAAIAAAALAAAAAAANAAEAAAALAAAAAAANAAAAAAALAAAAAAANAP//AAALAAAAAAANAP7/AAACAAEAAAANAP3/AAACAAEAAAANAPz/AAACAAEAAAANAPv/AAALAAAAAAANAPr/AAACAAEAAAANAPn/AAACAAAAAAAMAAYAAAACAAIAAAAMAAUAAAALAAAAAAAMAAQAAAALAAAAAAAMAAMAAAACAAEAAAAMAAIAAAACAAEAAAAMAAEAAAALAAAAAAAMAAAAAAALAAAAAAAMAP//AAACAAEAAAAMAP7/AAALAAAAAAAMAP3/AAACAAEAAAAMAPz/AAACAAEAAAAMAPv/AAACAAEAAAAMAPr/AAACAAEAAAAMAPn/AAACAAAAAAALAAYAAAACAAIAAAALAAUAAAACAAEAAAALAAQAAAACAAEAAAALAAMAAAAHAAIAAAALAAIAAAABAAEAAAALAAEAAAABAAEAAAALAAAAAAABAAEAAAALAP//AAABAAEAAAALAP7/AAABAAEAAAALAP3/AAABAAEAAAALAPz/AAABAAEAAAALAPv/AAABAAEAAAALAPr/AAABAAEAAAALAPn/AAABAAAAAAD0/wIAAAADAAEAAAD0/wEAAAADAAEAAAD0/wAAAAADAAEAAAD0////AAADAAEAAAD0//7/AAADAAEAAAD0//3/AAADAAEAAADz/wYAAAACAAIAAADz/wUAAAALAAAAAADz/wQAAAALAAAAAADz/wMAAAALAAAAAADz/wIAAAALAAAAAADz/wEAAAALAAAAAADz/wAAAAACAAEAAADz////AAALAAAAAADz//7/AAACAAEAAADz//3/AAALAAAAAADy/wYAAAABAAIAAADy/wUAAAABAAEAAADy/wQAAAABAAEAAADy/wMAAAABAAEAAADy/wIAAAABAAEAAADy/wEAAAABAAEAAADy/wAAAAABAAEAAADy////AAABAAEAAADy//7/AAABAAEAAADy//3/AAABAAEAAAD0//z/AAADAAEAAAD0//v/AAADAAEAAAD0//r/AAADAAEAAAD0//n/AAADAAAAAADz//z/AAACAAEAAADz//v/AAALAAAAAADz//r/AAACAAEAAADz//n/AAACAAAAAADy//z/AAABAAEAAADy//v/AAABAAEAAADy//r/AAABAAEAAADy//n/AAABAAAAAAA=")
+metadata/created_via_tool_script = true
+
+[node name="LevelName" parent="." instance=ExtResource("6_orsic")]
+offset_left = -32.0
+offset_top = 64.0
+offset_right = 32.0
+offset_bottom = 80.0
+text = "Options"
+metadata/created_via_tool_script = true
+
+[node name="NextLevel" parent="." instance=ExtResource("8_vs8ss")]
+position = Vector2(-160, 16)
+scene = ExtResource("6_wwat2")
+metadata/created_via_tool_script = true
+
+[node name="DarkLight" parent="." instance=ExtResource("10_knlm2")]
+metadata/created_via_tool_script = true
+
+[node name="PlayerSpawner" type="Area2D" parent="."]
+process_mode = 3
+position = Vector2(-136, 0)
+script = ExtResource("11_cq2l0")
+active = true
+scene = ExtResource("12_xhibg")
+metadata/created_via_tool_script = true
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+process_callback = 0
+script = ExtResource("13_u8mwg")
+metadata/created_via_tool_script = true
+
+[node name="StateGame" type="Node" parent="."]
+script = ExtResource("14_0oiyk")
+metadata/created_via_tool_script = true
+
+[node name="Unpauses" type="Node" parent="."]
+script = ExtResource("15_px2ly")
+metadata/created_via_tool_script = true
+
+[node name="ButtonsHUD" type="Node" parent="."]
+script = ExtResource("16_fjsry")
+scene = ExtResource("17_2bmjo")
+metadata/created_via_tool_script = true
+
+[node name="BgmAudioSlider" parent="." instance=ExtResource("18_jc5na")]
+offset_left = 40.0
+offset_top = -46.0
+offset_right = 140.0
+offset_bottom = 20.0
+
+[node name="Area2D" type="Area2D" parent="BgmAudioSlider"]
+position = Vector2(50, 50)
+collision_layer = 512
+collision_mask = 8
+script = ExtResource("15_681h7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BgmAudioSlider/Area2D"]
+shape = SubResource("RectangleShape2D_n53tt")
+
+[node name="SfxAudioSlider" parent="." instance=ExtResource("19_cmyit")]
+offset_left = -93.0
+offset_top = -46.0
+offset_right = 7.0
+offset_bottom = 20.0
+
+[node name="Area2D" type="Area2D" parent="SfxAudioSlider"]
+position = Vector2(54, 50)
+collision_layer = 512
+collision_mask = 8
+script = ExtResource("15_681h7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SfxAudioSlider/Area2D"]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_pffiy")

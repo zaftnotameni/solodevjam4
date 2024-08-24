@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://ck5nly71iwpkd"]
+[gd_scene load_steps=8 format=4 uid="uid://ck5nly71iwpkd"]
 
 [ext_resource type="Script" path="res://addons/zaft_game_manager/audio/autoload.gd" id="1_fcb7v"]
 [ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer.gd" id="2_45cmn"]
+[ext_resource type="AudioStream" uid="uid://bja7v8xihixmn" path="res://addons/zaft_game_manager/audio/sounds/ui/bfxr_blip.wav" id="2_pfvij"]
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_cmflb"]
 data = PackedByteArray("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BQX/+ff9AwQDBAUB+ff8AgQDBAUC+vf9AgQDBAUC+vf9AgQDBAUC+vj9AwMCBAX/+fj+AwMCBAX++fn/AwIDBAT8+PsBBAIDBAP7+P0CAwIEBQH6+f8DAwMEBP34+wEEAgMEA/v4/gMDAQME/vn7AQMBAgQC+/n+AgMBAwT++fwBAwEDBAL6+v8DAgIEBPz5/QIDAQME//r8AgMBAwQC+/sBAwECBAP8+v8DAQEDA/z5/gICAQME/fn9AgL/AwT++v0CA/8CBP/6/QID/wIE//r9AgP/AgT/+v0CA/8CBP/6/gIC/wME/vr+AgIBAwP9+/8DAf8DAvz7AQP/AQMB+/0CAv4CA//7/gIC/wID/fv/A/8BAwL8/QIC/wID//v/AgH/AgP9/QED/wEDAfz/AgH/AgP9/QED/wEDAfz/Av//AgL8/QIC/gED/vwBA/7/AwH8/gIB/gIC/f4CAv4BA/79AQL+AQP//P8C//8CAvz+AgH+AgL9/gIC/gID/v4CAv4BA/79AQL+AQP//QEC/gEC//0BAv4BAv/9AQL+AQL//QEC/gEC//0BAv4BAv/+AgL+AQL+/gIB/gEC/v8CAf4BAv7/Av/+AgL+AQL+/wIB/gEC/gEC//8CAf4BAv7/Av/+AgL+AQL+/wL//wIB/QEC/v8C/v4CAf4BAv3/Av//Av/+AQH+AQL+/wL//wL//gEB/gEC/v8C//8C/v4BAf8CAf3/Av4BAv7+Av//Av/+AQH+AQH9/wL/AQL+/wL/AQL+/gEB/wL//QEB/wEB/f8C/wEC/v8C/wEC/v4BAQEC//4BAQEC//4BAf8C//4BAf8CAf7/AQEC//3/Af8C//3/Af8C//3/Af8C//3/Af8C//3/Af8C//3/AQEC//4BAQEC//4BAQEC/v4BAQEC/v4BAQEB/v8BAQIB/v8BAQL//gEBAQL+/gEBAQH+/wEBAgH+/wEBAv/+AQECAf7+AQEC//3/AQEC/v4BAQEB/v8BAQL//v8BAQH+/gEBAgH+/wEBAv7+AQECAf7/AQEC/v4BAQIB/v8BAQH+/gEBAv/+/wECAf7/AQEC//4BAQIB/v8BAgH+/wEBAv/+AQECAf7/AQIB/v4BAQH+/gEBAv/+/wECAf7/AQEB/v8BAQH//gEBAf/+/wEC//7/AQIB/v8BAgH+/wEBAf7/AQEB/v4BAQH//gEBAf/+AQEC//4BAQL//gEBAv/+AQEC//4BAQH//gEBAf/+AQEB//4BAQH//gECAf/+AQEB//8BAQH+/wEBAf7/AQH//v8BAf/+/wEB//7/AQH//gEBAf//AQEB//8BAf/+/wEB//8BAQH//wEBAf//AQH///8BAf//AQEB//8BAQH//wEB//8BAQH//wEB////AQH//wEBAf//AQH///8BAf//AQH///8BAf//AQH///8BAf//AQH///8BAf//AQH///8BAf//AQH///8BAf//AQH//wEBAf//AQH//wEB////AQH//wEB//8BAf///wEB//8BAf//AQEB//8BAf//AQH//wEB//8BAQH//wEB//8BAf//AQH//wEBAf//AQH//wEB//8BAf//AQH//wEB////Af///wEB")
@@ -21,15 +22,18 @@ script = ExtResource("1_fcb7v")
 [node name="Master" type="Node2D" parent="."]
 
 [node name="TestSound" type="AudioStreamPlayer" parent="Master"]
+stream = ExtResource("2_pfvij")
 
 [node name="BGM" type="Node2D" parent="."]
 
 [node name="TestSound" type="AudioStreamPlayer" parent="BGM"]
+stream = ExtResource("2_pfvij")
 bus = &"BGM"
 
 [node name="SFX" type="Node2D" parent="."]
 
 [node name="TestSound" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("2_pfvij")
 bus = &"SFX"
 
 [node name="Jump" type="AudioStreamPlayer" parent="SFX"]
@@ -155,6 +159,7 @@ high_pass_filter/cutoff_sweep = 0.0903974
 [node name="UI" type="Node2D" parent="."]
 
 [node name="TestSound" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource("2_pfvij")
 bus = &"UI"
 
 [node name="Focus" type="AudioStreamPlayer" parent="UI"]

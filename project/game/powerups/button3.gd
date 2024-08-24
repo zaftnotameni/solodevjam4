@@ -18,10 +18,12 @@ func on_body_entered(body:Node2D):
 func go_to_next_level():
 	if not scene : return
 	var next_level := scene.instantiate()
+	print_verbose('next_level %s' % next_level)
 	if not next_level : return
 	var children_to_wipe := []
 	children_to_wipe.append_array(Layers.layer_game().get_children())
 	children_to_wipe.append_array(Layers.layer_menu().get_children())
+	print_verbose('children_to_wipe:', children_to_wipe)
 
 	var tween = TweenUtil.tween_ignores_pause(TweenUtil.tween_fresh_eased_in_out_cubic())
 

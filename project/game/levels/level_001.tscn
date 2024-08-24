@@ -42,7 +42,8 @@ script = ExtResource("5_upofl")
 active = true
 
 [node name="PowerUpPause" parent="." instance=ExtResource("8_j5sh4")]
-position = Vector2(80, 16)
+visible = false
+position = Vector2(72, 180)
 
 [node name="PowerUpNextLevel" parent="." instance=ExtResource("9_pvge1")]
 position = Vector2(496, 0)

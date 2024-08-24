@@ -10,6 +10,7 @@ func _exit_tree() -> void:
 
 func _enter_tree() -> void:
 	if not scene: push_error('must provide a scene %s' % get_path())
+	if Engine.is_editor_hint(): return
 	var node := scene.instantiate()
 	spawned.push_back(node)
 	node.tree_exiting.connect(spawned.erase.bind(node))

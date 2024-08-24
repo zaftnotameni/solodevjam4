@@ -37,7 +37,7 @@ func initialize():
 	coyote_duration = 0.1
 	jump_buffer_timing = 0.1
 	jump_time_to_peak = 0.6
-	jump_time_to_land = 0.35
+	jump_time_to_land = 0.3
 	jump_height = 56.0
 	run_kinematic_equations()
 

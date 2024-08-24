@@ -13,11 +13,13 @@ const GROUP := 'checkpoints'
 @export var spawning : bool
 
 func _enter_tree() -> void:
+	if Engine.is_editor_hint(): return
 	process_mode = Node.ProcessMode.PROCESS_MODE_ALWAYS
 	add_to_group(GROUP)
 	if not scene: scene = load('res://game/player/character.tscn')
 
 func _ready() -> void:
+	if Engine.is_editor_hint(): return
 	body_entered.connect(on_body_entered)
 	if active: activate()
 	if spawn_on_ready: spawn.call_deferred()
@@ -37,18 +39,20 @@ func spawn():
 		p.queue_free()
 		await p.tree_exited
 
-	match layer:
-		'game':
-			if not State.game_state == State.GameState.GAME: await State.first().sig_game_state_game
+	if State.first():
+		match layer:
+			'game':
+				if not State.game_state == State.GameState.GAME: await State.first().sig_game_state_game
 
 	if State.transition: await State.first().sig_transition_finished
 
 	var p := scene.instantiate() as CharacterScene
 	p.global_position = global_position
 
-	match layer:
-		'game': Layers.layer_game().add_child.call_deferred(p)
-		'menu': Layers.layer_menu().add_child.call_deferred(p)
+	if Layers.first():
+		match layer:
+			'game': Layers.layer_game().add_child.call_deferred(p)
+			'menu': Layers.layer_menu().add_child.call_deferred(p)
 
 	await p.ready
 	sig_spawn_animation_finished.emit()

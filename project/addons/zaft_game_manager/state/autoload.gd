@@ -94,10 +94,11 @@ static func mark_as(new_state:GameState):
 	
 static func react_to_game_state_changed(prev_state:GameState):
 	print_verbose('game_state: %s' % str(game_state_stack.map(name_of)))
-	State.first().sig_game_state_changed.emit(game_state, prev_state)
-	if game_state == GameState.INITIAL: State.first().sig_game_state_initial.emit()
-	if game_state == GameState.VICTORY: State.first().sig_game_state_victory.emit()
-	if game_state == GameState.GAME: State.first().sig_game_state_game.emit()
+	if State.first():
+		State.first().sig_game_state_changed.emit(game_state, prev_state)
+		if game_state == GameState.INITIAL: State.first().sig_game_state_initial.emit()
+		if game_state == GameState.VICTORY: State.first().sig_game_state_victory.emit()
+		if game_state == GameState.GAME: State.first().sig_game_state_game.emit()
 	if game_state == GameState.GAME: soft_reset_time()
 	if game_state == GameState.TITLE: reset_victory_time()
 	if game_state == GameState.VICTORY: promote_current_time_to_victory_time()

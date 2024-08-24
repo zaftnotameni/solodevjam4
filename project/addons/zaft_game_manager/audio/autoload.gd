@@ -35,10 +35,10 @@ static func play_stream(player:AudioStreamPlayer, bus:AudioBus=AudioBus.Any, onl
 
 	if player.bus == AudioBus.find_key(AudioBus.BGM):
 		if player.name != 'TestSound':
-			player.set('parameters/looping', true)
 			player.playback_type = AudioServer.PLAYBACK_TYPE_STREAM
+			player.set('parameters/looping', true)
 
-	print_verbose('play: %s' % id)
+	print_verbose('play [%s] (%s)' % [player.name, id])
 	player.play()
 
 func ignore_next(player:AudioStreamPlayer, how_many:int=1):

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3o6thyk8qom1"]
+[gd_scene load_steps=4 format=3 uid="uid://d3o6thyk8qom1"]
 
 [ext_resource type="Script" path="res://game/powerups/button3.gd" id="1_08eg3"]
+[ext_resource type="Script" path="res://game/powerups/level_001_setter.gd" id="2_om45q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sim8a"]
 size = Vector2(96, 32)
@@ -9,7 +10,6 @@ size = Vector2(96, 32)
 collision_layer = 16
 collision_mask = 8
 script = ExtResource("1_08eg3")
-what = 1
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -29,3 +29,6 @@ vertical_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sim8a")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("2_om45q")
