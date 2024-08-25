@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://dupd85euukn4o"]
+
+[ext_resource type="PackedScene" uid="uid://l6euokb2as41" path="res://game/decoration/background_decoration.tscn" id="1_bh4kq"]
+[ext_resource type="Texture2D" uid="uid://sdk57026206l" path="res://assets/aseprite/big_sheet.png" id="2_0otnp"]
+[ext_resource type="Texture2D" uid="uid://diejeft56yfd" path="res://assets/aseprite/player.png" id="3_qc6hk"]
+
+[node name="TitleCard" type="Node2D"]
+
+[node name="BackgroundDecoration" parent="." instance=ExtResource("1_bh4kq")]
+position = Vector2(700, 368)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1172, 64)
+scale = Vector2(8, 8)
+texture = ExtResource("2_0otnp")
+region_enabled = true
+region_rect = Rect2(112, 0, 48, 16)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(192, 64)
+scale = Vector2(8, 8)
+texture = ExtResource("2_0otnp")
+region_enabled = true
+region_rect = Rect2(112, 16, 48, 16)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(260, 617)
+scale = Vector2(8, 8)
+texture = ExtResource("3_qc6hk")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(1056, 656)
+scale = Vector2(8, 8)
+texture = ExtResource("2_0otnp")
+region_enabled = true
+region_rect = Rect2(16, 16, 16, 16)
+
+[node name="A" type="Sprite2D" parent="."]
+position = Vector2(64, 704)
+scale = Vector2(8, 8)
+texture = ExtResource("2_0otnp")
+region_enabled = true
+region_rect = Rect2(160, 0, 16, 16)
+
+[node name="B" type="Sprite2D" parent="."]
+position = Vector2(1300, 704)
+scale = Vector2(8, 8)
+texture = ExtResource("2_0otnp")
+region_enabled = true
+region_rect = Rect2(176, 0, 16, 16)
+
+[node name="AJump" type="Sprite2D" parent="."]
+position = Vector2(572, 336)
+scale = Vector2(16, 16)
+texture = ExtResource("2_0otnp")
+region_enabled = true
+region_rect = Rect2(160, 16, 16, 16)
+
+[node name="BDash" type="Sprite2D" parent="."]
+position = Vector2(776, 336)
+scale = Vector2(16, 16)
+texture = ExtResource("2_0otnp")
+region_enabled = true
+region_rect = Rect2(176, 16, 16, 16)
+
+[node name="BSwitch" type="Sprite2D" parent="."]
+position = Vector2(656, 60)
+scale = Vector2(8, 8)
+texture = ExtResource("2_0otnp")
+region_enabled = true
+region_rect = Rect2(176, 32, 16, 16)

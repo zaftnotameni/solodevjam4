@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cyxqktr555eq4"]
+[gd_scene load_steps=3 format=3 uid="uid://cyxqktr555eq4"]
 
 [ext_resource type="Script" path="res://game/decoration/level_name_scene.gd" id="1_o7qat"]
+[ext_resource type="Script" path="res://game/text/baba.gd" id="2_gqdo6"]
 
 [node name="LevelName" type="Label"]
 custom_minimum_size = Vector2(0, 16)
@@ -20,3 +21,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0862745, 0.0784314, 0.223529, 1)
+
+[node name="BABA" type="Node" parent="."]
+script = ExtResource("2_gqdo6")

@@ -1,0 +1,75 @@
+[gd_scene load_steps=15 format=4 uid="uid://jok8tx681o0r"]
+
+[ext_resource type="PackedScene" uid="uid://dgygkbtm0burn" path="res://addons/smart_quiver/leaderboards/leaderboard_ui.tscn" id="1_5rdv2"]
+[ext_resource type="Script" path="res://game/levels/level_tooler.gd" id="1_swguh"]
+[ext_resource type="PackedScene" uid="uid://l6euokb2as41" path="res://game/decoration/background_decoration.tscn" id="2_0gmy1"]
+[ext_resource type="PackedScene" uid="uid://cr1v0ms0iny16" path="res://game/terrain/foreground_tiles.tscn" id="3_2qt0h"]
+[ext_resource type="PackedScene" uid="uid://4866d3bmidtx" path="res://game/powerups/power_up_next_level.tscn" id="8_0s3ho"]
+[ext_resource type="Script" path="res://game/powerups/title_menu_setter.gd" id="9_cmvdr"]
+[ext_resource type="PackedScene" uid="uid://bnln3d06qe2ld" path="res://game/decoration/level_dark_light.tscn" id="10_cq6p7"]
+[ext_resource type="Script" path="res://game/player/spawner.gd" id="11_neb1l"]
+[ext_resource type="PackedScene" uid="uid://bal7ofwbeschm" path="res://game/player/character.tscn" id="12_gr6rw"]
+[ext_resource type="Script" path="res://game/camera/follow.gd" id="13_22xdv"]
+[ext_resource type="Script" path="res://addons/zaft_game_manager/state/in/game.gd" id="14_jpnpx"]
+[ext_resource type="Script" path="res://addons/zaft_game_manager/pause/unpauses.gd" id="15_353ph"]
+[ext_resource type="Script" path="res://addons/zaft_game_manager/layers/at/hud.gd" id="16_te06n"]
+[ext_resource type="PackedScene" uid="uid://owhqpn13v0yi" path="res://game/hud/buttons.tscn" id="17_8s2i4"]
+
+[node name="LeaderboardsScreen" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="LeaderboardUI" parent="CanvasLayer" instance=ExtResource("1_5rdv2")]
+
+[node name="LevelTooler" type="Node" parent="."]
+script = ExtResource("1_swguh")
+
+[node name="Background" parent="." instance=ExtResource("2_0gmy1")]
+metadata/created_via_tool_script = true
+
+[node name="Foreground" parent="." instance=ExtResource("3_2qt0h")]
+tile_map_data = PackedByteArray("AAAKAAcAAAADAAIAAAAKAAYAAAADAAEAAAAJAAcAAAACAAIAAAAJAAYAAAAHAAIAAAAIAAcAAAACAAIAAAAIAAYAAAACAAAAAAAHAAcAAAACAAIAAAAHAAYAAAACAAAAAAAGAAcAAAACAAIAAAAGAAYAAAACAAAAAAAFAAcAAAACAAIAAAAFAAYAAAACAAAAAAAEAAcAAAACAAIAAAAEAAYAAAACAAAAAAADAAcAAAACAAIAAAADAAYAAAACAAAAAAACAAcAAAACAAIAAAACAAYAAAACAAAAAAABAAcAAAACAAIAAAABAAYAAAACAAAAAAAAAAcAAAACAAIAAAAAAAYAAAACAAAAAAD//wcAAAACAAIAAAD//wYAAAACAAAAAAD+/wcAAAACAAIAAAD+/wYAAAACAAAAAAD9/wcAAAACAAIAAAD9/wYAAAACAAAAAAD8/wcAAAACAAIAAAD8/wYAAAACAAAAAAD7/wcAAAACAAIAAAD7/wYAAAACAAAAAAD6/wcAAAACAAIAAAD6/wYAAAACAAAAAAD5/wcAAAACAAIAAAD5/wYAAAACAAAAAAD4/wcAAAACAAIAAAD4/wYAAAACAAAAAAD3/wcAAAACAAIAAAD3/wYAAAACAAAAAAD2/wcAAAACAAIAAAD2/wYAAAACAAAAAAD1/wcAAAACAAIAAAD1/wYAAAAGAAIAAAD0/wcAAAABAAIAAAD0/wYAAAABAAEAAAAKAAUAAAADAAEAAAAKAAQAAAADAAEAAAAKAAMAAAADAAEAAAAKAAIAAAADAAEAAAAKAAEAAAADAAEAAAAKAAAAAAADAAEAAAAKAP//AAADAAEAAAAKAP7/AAADAAEAAAAKAP3/AAADAAEAAAAKAPz/AAADAAEAAAAKAPv/AAADAAEAAAAKAPr/AAADAAEAAAD1/wUAAAADAAEAAAD1/wQAAAADAAEAAAD1/wMAAAADAAEAAAD1/wIAAAADAAEAAAD1/wEAAAADAAEAAAD1/wAAAAADAAEAAAD1////AAADAAEAAAD1//7/AAADAAEAAAD1//3/AAADAAEAAAD1//z/AAADAAEAAAD1//v/AAADAAEAAAD0/wUAAAABAAEAAAD0/wQAAAABAAEAAAD0/wMAAAABAAEAAAD0/wIAAAABAAEAAAD0/wEAAAABAAEAAAD0/wAAAAABAAEAAAD0////AAABAAEAAAD0//7/AAABAAEAAAD0//3/AAABAAEAAAD0//z/AAABAAEAAAD0//v/AAABAAEAAAAKAPn/AAADAAAAAAAJAPr/AAAHAAEAAAAJAPn/AAACAAAAAAAIAPr/AAACAAIAAAAIAPn/AAACAAAAAAAHAPr/AAACAAIAAAAHAPn/AAACAAAAAAAGAPr/AAACAAIAAAAGAPn/AAACAAAAAAAFAPr/AAACAAIAAAAFAPn/AAACAAAAAAAEAPr/AAACAAIAAAAEAPn/AAACAAAAAAADAPr/AAACAAIAAAADAPn/AAACAAAAAAACAPr/AAACAAIAAAACAPn/AAACAAAAAAABAPr/AAACAAIAAAABAPn/AAACAAAAAAAAAPr/AAACAAIAAAAAAPn/AAACAAAAAAD///r/AAACAAIAAAD///n/AAACAAAAAAD+//r/AAACAAIAAAD+//n/AAACAAAAAAD9//r/AAACAAIAAAD9//n/AAACAAAAAAD8//r/AAACAAIAAAD8//n/AAACAAAAAAD7//r/AAACAAIAAAD7//n/AAACAAAAAAD6//r/AAACAAIAAAD6//n/AAACAAAAAAD5//r/AAACAAIAAAD5//n/AAACAAAAAAD4//r/AAACAAIAAAD4//n/AAACAAAAAAD3//r/AAACAAIAAAD3//n/AAACAAAAAAD2//r/AAACAAIAAAD2//n/AAACAAAAAAD1//r/AAAGAAEAAAD1//n/AAACAAAAAAD0//r/AAABAAEAAAD0//n/AAABAAAAAAAJAAUAAAABAAEAAAAJAAQAAAABAAEAAAAJAAMAAAABAAEAAAAJAAIAAAABAAEAAAAJAAEAAAABAAEAAAAJAAAAAAABAAEAAAAJAP//AAABAAEAAAAJAP7/AAABAAEAAAAJAP3/AAABAAEAAAAJAPz/AAABAAEAAAAJAPv/AAABAAEAAAA=")
+metadata/created_via_tool_script = true
+
+[node name="NextLevel" parent="." instance=ExtResource("8_0s3ho")]
+position = Vector2(-144, 60)
+metadata/created_via_tool_script = true
+
+[node name="Node" type="Node" parent="NextLevel"]
+script = ExtResource("9_cmvdr")
+
+[node name="NextLevel2" parent="." instance=ExtResource("8_0s3ho")]
+position = Vector2(132, 60)
+metadata/created_via_tool_script = true
+
+[node name="Node" type="Node" parent="NextLevel2"]
+script = ExtResource("9_cmvdr")
+
+[node name="DarkLight" parent="." instance=ExtResource("10_cq6p7")]
+metadata/created_via_tool_script = true
+
+[node name="PlayerSpawner" type="Area2D" parent="."]
+script = ExtResource("11_neb1l")
+active = true
+scene = ExtResource("12_gr6rw")
+metadata/created_via_tool_script = true
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+process_callback = 0
+script = ExtResource("13_22xdv")
+metadata/created_via_tool_script = true
+
+[node name="StateGame" type="Node" parent="."]
+script = ExtResource("14_jpnpx")
+metadata/created_via_tool_script = true
+
+[node name="Unpauses" type="Node" parent="."]
+script = ExtResource("15_353ph")
+metadata/created_via_tool_script = true
+
+[node name="ButtonsHUD" type="Node" parent="."]
+script = ExtResource("16_te06n")
+scene = ExtResource("17_8s2i4")
+metadata/created_via_tool_script = true

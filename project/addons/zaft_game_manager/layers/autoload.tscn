@@ -21,4 +21,3 @@ layer = 3
 
 [node name="Menu" type="CanvasLayer" parent="." groups=["menu_layer"]]
 process_mode = 1
-follow_viewport_enabled = true

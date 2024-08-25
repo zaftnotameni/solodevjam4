@@ -1,18 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlfkm1nvene8n"]
+[gd_scene load_steps=7 format=3 uid="uid://t2tvsrkdb1pd"]
 
-[ext_resource type="Script" path="res://game/powerups/button3.gd" id="1_cfmxi"]
-[ext_resource type="Script" path="res://game/powerups/options_menu_setter.gd" id="2_afjbp"]
-[ext_resource type="Texture2D" uid="uid://sdk57026206l" path="res://assets/aseprite/big_sheet.png" id="3_8m8dk"]
+[ext_resource type="Script" path="res://game/powerups/button3.gd" id="1_rb1fe"]
+[ext_resource type="Script" path="res://game/powerups/about_menu_setter.gd" id="2_k6md4"]
+[ext_resource type="Texture2D" uid="uid://sdk57026206l" path="res://assets/aseprite/big_sheet.png" id="3_32a30"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne0nl"]
 size = Vector2(16, 16)
 
-[sub_resource type="Gradient" id="Gradient_kvp7g"]
+[sub_resource type="Gradient" id="Gradient_ms1vn"]
 offsets = PackedFloat32Array(0, 0.828169, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.0507042, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_soc0p"]
-gradient = SubResource("Gradient_kvp7g")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0gwmn"]
+gradient = SubResource("Gradient_ms1vn")
 width = 128
 height = 128
 use_hdr = true
@@ -22,7 +22,7 @@ fill_from = Vector2(0.5, 0.5)
 [node name="PowerUpOptionsMenu" type="Area2D"]
 collision_layer = 16
 collision_mask = 8
-script = ExtResource("1_cfmxi")
+script = ExtResource("1_rb1fe")
 what = 2
 
 [node name="Label" type="Label" parent="."]
@@ -46,13 +46,7 @@ vertical_alignment = 1
 shape = SubResource("RectangleShape2D_ne0nl")
 
 [node name="Node" type="Node" parent="."]
-script = ExtResource("2_afjbp")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-light_mask = 3
-texture = ExtResource("3_8m8dk")
-region_enabled = true
-region_rect = Rect2(64, 0, 16, 16)
+script = ExtResource("2_k6md4")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.74902, 0.152941, 0.494118, 1)
@@ -63,5 +57,11 @@ range_item_cull_mask = 6
 shadow_enabled = true
 shadow_color = Color(0.0862745, 0.0784314, 0.223529, 1)
 shadow_item_cull_mask = 6
-texture = SubResource("GradientTexture2D_soc0p")
+texture = SubResource("GradientTexture2D_0gwmn")
 texture_scale = 0.25
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 3
+texture = ExtResource("3_32a30")
+region_enabled = true
+region_rect = Rect2(80, 0, 16, 16)

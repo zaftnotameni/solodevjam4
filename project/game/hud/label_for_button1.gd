@@ -3,6 +3,9 @@ class_name LabelForButton1 extends Label
 var character : CharacterScene
 var machine : StateMachine
 
+@onready var a = %A
+@onready var a_jump = %AJump
+
 func on_player_ready():
 	character = CharacterScene.first()
 	if not character: return
@@ -15,6 +18,13 @@ func on_player_ready():
 
 func on_button_changed(_curr:Node=null, _prev:Node=null):
 	text = machine.current_state_name().replace('_', ' ').to_pascal_case()
+	match machine.current_state_id():
+		PlayerEnums.Button1.NOTHING:
+			a.show()
+			a_jump.hide()
+		PlayerEnums.Button1.JUMP:
+			a.hide()
+			a_jump.show()
 
 func _ready() -> void:
 	State.first().sig_player_ready.connect(on_player_ready)

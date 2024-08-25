@@ -1,0 +1,84 @@
+[gd_scene load_steps=15 format=4 uid="uid://xopkmmubhns2"]
+
+[ext_resource type="Script" path="res://game/levels/level_tooler.gd" id="1_3p74e"]
+[ext_resource type="PackedScene" uid="uid://l6euokb2as41" path="res://game/decoration/background_decoration.tscn" id="2_t2rn4"]
+[ext_resource type="PackedScene" uid="uid://cr1v0ms0iny16" path="res://game/terrain/foreground_tiles.tscn" id="3_sqjjv"]
+[ext_resource type="PackedScene" uid="uid://4866d3bmidtx" path="res://game/powerups/power_up_next_level.tscn" id="8_80hda"]
+[ext_resource type="Script" path="res://game/powerups/title_menu_setter.gd" id="10_5qjjx"]
+[ext_resource type="PackedScene" uid="uid://bnln3d06qe2ld" path="res://game/decoration/level_dark_light.tscn" id="10_ivtdf"]
+[ext_resource type="Script" path="res://game/player/spawner.gd" id="11_60rrv"]
+[ext_resource type="PackedScene" uid="uid://bal7ofwbeschm" path="res://game/player/character.tscn" id="12_5uqbp"]
+[ext_resource type="Script" path="res://game/camera/follow.gd" id="13_p62k4"]
+[ext_resource type="Script" path="res://addons/zaft_game_manager/state/in/game.gd" id="14_6touc"]
+[ext_resource type="Script" path="res://game/text/baba.gd" id="14_vpsw5"]
+[ext_resource type="Script" path="res://addons/zaft_game_manager/pause/unpauses.gd" id="15_ppwol"]
+[ext_resource type="Script" path="res://addons/zaft_game_manager/layers/at/hud.gd" id="16_l4d8d"]
+[ext_resource type="PackedScene" uid="uid://owhqpn13v0yi" path="res://game/hud/buttons.tscn" id="17_ba440"]
+
+[node name="AboutScreen" type="Node2D"]
+
+[node name="LevelTooler" type="Node" parent="."]
+script = ExtResource("1_3p74e")
+
+[node name="Background" parent="." instance=ExtResource("2_t2rn4")]
+metadata/created_via_tool_script = true
+
+[node name="Foreground" parent="." instance=ExtResource("3_sqjjv")]
+tile_map_data = PackedByteArray("AAD1//j/AAABAAAAAAD1//n/AAABAAEAAAD1//r/AAABAAEAAAD1//v/AAABAAEAAAD1//z/AAABAAEAAAD1//3/AAABAAEAAAD1//7/AAABAAEAAAD1////AAABAAEAAAD1/wAAAAABAAEAAAD1/wEAAAABAAEAAAD1/wIAAAABAAEAAAD1/wMAAAABAAEAAAD1/wQAAAABAAEAAAD1/wUAAAABAAEAAAD1/wYAAAABAAIAAAD2//j/AAACAAAAAAD2//n/AAAGAAEAAAD2/wUAAAAGAAIAAAD2/wYAAAACAAIAAAD3//j/AAACAAAAAAD3//n/AAACAAIAAAD3/wUAAAACAAAAAAD3/wYAAAACAAIAAAD4//j/AAACAAAAAAD4//n/AAACAAIAAAD4/wUAAAACAAAAAAD4/wYAAAACAAIAAAD5//j/AAACAAAAAAD5//n/AAACAAIAAAD5/wUAAAACAAAAAAD5/wYAAAACAAIAAAD6//j/AAACAAAAAAD6//n/AAACAAIAAAD6/wUAAAACAAAAAAD6/wYAAAACAAIAAAD7//j/AAACAAAAAAD7//n/AAACAAIAAAD7/wUAAAACAAAAAAD7/wYAAAACAAIAAAD8//j/AAACAAAAAAD8//n/AAACAAIAAAD8/wUAAAACAAAAAAD8/wYAAAACAAIAAAD9//j/AAACAAAAAAD9//n/AAACAAIAAAD9/wUAAAACAAAAAAD9/wYAAAACAAIAAAD+//j/AAACAAAAAAD+//n/AAACAAIAAAD+/wUAAAACAAAAAAD+/wYAAAACAAIAAAD///j/AAACAAAAAAD///n/AAACAAIAAAD//wUAAAACAAAAAAD//wYAAAACAAIAAAAAAPj/AAACAAAAAAAAAPn/AAACAAIAAAAAAAUAAAACAAAAAAAAAAYAAAACAAIAAAABAPj/AAACAAAAAAABAPn/AAACAAIAAAABAAUAAAACAAAAAAABAAYAAAACAAIAAAACAPj/AAACAAAAAAACAPn/AAACAAIAAAACAAUAAAACAAAAAAACAAYAAAACAAIAAAADAPj/AAACAAAAAAADAPn/AAACAAIAAAADAAUAAAACAAAAAAADAAYAAAACAAIAAAAEAPj/AAACAAAAAAAEAPn/AAACAAIAAAAEAAUAAAACAAAAAAAEAAYAAAACAAIAAAAFAPj/AAACAAAAAAAFAPn/AAACAAIAAAAFAAUAAAACAAAAAAAFAAYAAAACAAIAAAAGAPj/AAACAAAAAAAGAPn/AAACAAIAAAAGAAUAAAACAAAAAAAGAAYAAAACAAIAAAAHAPj/AAACAAAAAAAHAPn/AAACAAIAAAAHAAUAAAACAAAAAAAHAAYAAAACAAIAAAAIAPj/AAACAAAAAAAIAPn/AAACAAIAAAAIAAUAAAACAAAAAAAIAAYAAAACAAIAAAAJAPj/AAACAAAAAAAJAPn/AAAHAAEAAAAJAPr/AAABAAEAAAAJAPv/AAABAAEAAAAJAPz/AAABAAEAAAAJAP3/AAABAAEAAAAJAP7/AAABAAEAAAAJAP//AAABAAEAAAAJAAAAAAABAAEAAAAJAAEAAAABAAEAAAAJAAIAAAABAAEAAAAJAAMAAAABAAEAAAAJAAQAAAABAAEAAAAJAAUAAAAHAAIAAAAJAAYAAAACAAIAAAAKAPj/AAADAAAAAAAKAPn/AAADAAEAAAAKAPr/AAADAAEAAAAKAPv/AAADAAEAAAAKAPz/AAADAAEAAAAKAP3/AAADAAEAAAAKAP7/AAADAAEAAAAKAP//AAADAAEAAAAKAAAAAAADAAEAAAAKAAEAAAADAAEAAAAKAAIAAAADAAEAAAAKAAMAAAADAAEAAAAKAAQAAAADAAEAAAAKAAUAAAADAAEAAAAKAAYAAAADAAIAAAD2/wQAAAADAAEAAAD2/wMAAAADAAEAAAD2/wIAAAADAAEAAAD2/wEAAAADAAEAAAD2/wAAAAADAAEAAAD2////AAADAAEAAAD2//7/AAADAAEAAAD2//3/AAADAAEAAAD2//z/AAADAAEAAAD2//v/AAADAAEAAAD2//r/AAADAAEAAAA=")
+metadata/created_via_tool_script = true
+
+[node name="NextLevel" parent="." instance=ExtResource("8_80hda")]
+position = Vector2(132, 40)
+metadata/created_via_tool_script = true
+
+[node name="Node" type="Node" parent="NextLevel"]
+script = ExtResource("10_5qjjx")
+
+[node name="DarkLight" parent="." instance=ExtResource("10_ivtdf")]
+metadata/created_via_tool_script = true
+
+[node name="PlayerSpawner" type="Area2D" parent="."]
+script = ExtResource("11_60rrv")
+active = true
+scene = ExtResource("12_5uqbp")
+metadata/created_via_tool_script = true
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+process_callback = 0
+script = ExtResource("13_p62k4")
+metadata/created_via_tool_script = true
+
+[node name="StateGame" type="Node" parent="."]
+script = ExtResource("14_6touc")
+metadata/created_via_tool_script = true
+
+[node name="Unpauses" type="Node" parent="."]
+script = ExtResource("15_ppwol")
+metadata/created_via_tool_script = true
+
+[node name="ButtonsHUD" type="Node" parent="."]
+script = ExtResource("16_l4d8d")
+scene = ExtResource("17_ba440")
+metadata/created_via_tool_script = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -140.0
+offset_top = -52.0
+offset_right = 140.0
+offset_bottom = 84.0
+theme_override_font_sizes/mono_font_size = 8
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "[u]BABA AB BAA[/u]
+2 Button Control game by ZAFT for SoloDev JAM4
+
+All assets made during the JAM.
+
+Made with: Neovim, Godot 4.3, Aseprite, LMMS, SFXR
+
+Font: https://datagoblin.itch.io/monogram"
+
+[node name="BABA" type="Node" parent="RichTextLabel"]
+script = ExtResource("14_vpsw5")

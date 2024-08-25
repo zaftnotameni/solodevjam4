@@ -100,7 +100,7 @@ func setup_boundaries():
 		min_y = min(min_y, glopos.y)
 		max_x = max(max_x, glopos.x)
 		max_y = max(max_y, glopos.y)
-	limit_left = roundi(min_x - 16 * 0.25)
-	limit_right = roundi(max_x + 16 * 0.25)
+	limit_left = snappedi(roundi(min_x - 16 * 0.5), 16) + 8
+	limit_right = snappedi(roundi(max_x + 16 * 0.5), 16) - 8
 	limit_top = roundi(min_y - 16 * 0.25)
 	limit_bottom = roundi(max_y + 16 * 0.25)

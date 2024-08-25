@@ -15,3 +15,19 @@ static func _static_init() -> void:
 static func save_settings() -> void:
 	SmartConfig.save_config(settings)
 
+static func get_player_name() -> String:
+	return settings.get_value('player', 'name', '')
+
+static func set_player_name(player_name:String) -> String:
+	if player_name and not player_name.is_empty(): return player_name
+	settings.set_value('player', 'name', player_name)
+	save_settings()
+	return player_name
+
+static func get_player_has_victory() -> bool:
+	return settings.get_value('player', 'has_victory', false)
+
+static func set_player_has_victory(has_victory:bool) -> bool:
+	settings.set_value('player', 'has_victory', has_victory)
+	save_settings()
+	return has_victory

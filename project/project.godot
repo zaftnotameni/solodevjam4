@@ -15,6 +15,7 @@ config/description="Solo Dev Jam 4"
 config/version="0.0.1"
 run/main_scene="res://game/main/main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/image="res://assets/textures/splash.png"
 
 [audio]
 
@@ -26,6 +27,8 @@ __config="*res://addons/zaft_game_manager/./config/autoload.tscn"
 __state="*res://addons/zaft_game_manager/./state/autoload.tscn"
 __layers="*res://addons/zaft_game_manager/./layers/autoload.tscn"
 __audio="*res://addons/zaft_game_manager/./audio/autoload.tscn"
+PlayerAccounts="*res://addons/smart_quiver/./accounts/player_accounts.tscn"
+Leaderboards="*res://addons/smart_quiver/./leaderboards/leaderboards.tscn"
 
 [debug]
 
@@ -44,7 +47,7 @@ naming/script_name_casing=2
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_sfxr/plugin.cfg", "res://addons/zaft_game_manager/plugin.cfg", "res://addons/zaft_project_defaults/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_sfxr/plugin.cfg", "res://addons/smart_quiver/plugin.cfg", "res://addons/zaft_game_manager/plugin.cfg", "res://addons/zaft_project_defaults/plugin.cfg")
 
 [file_customization]
 

@@ -28,7 +28,7 @@ static func save_config_to_file(cfg:ConfigFile=ConfigFile.new()) -> ConfigFile:
 
 static func load_config(cfg:ConfigFile=ConfigFile.new()) -> ConfigFile:
 	if OS.has_feature('web'):
-		return load_config_from_local_storage(cfg)
+		return load_config_from_local_storage(load_config_from_file(cfg))
 	else:
 		return load_config_from_file(cfg)
 
