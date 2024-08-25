@@ -1,29 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://owhqpn13v0yi"]
+[gd_scene load_steps=5 format=3 uid="uid://owhqpn13v0yi"]
 
 [ext_resource type="Script" path="res://game/hud/label_for_button1.gd" id="1_y6n4g"]
 [ext_resource type="Script" path="res://game/hud/label_for_button2.gd" id="2_fyu2u"]
 [ext_resource type="Texture2D" uid="uid://sdk57026206l" path="res://assets/aseprite/big_sheet.png" id="3_vobx6"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r76s0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="PanelContainer" type="PanelContainer"]
 offset_right = 57.0
 offset_bottom = 138.0
 size_flags_vertical = 0
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 2
-color = Color(0.0862745, 0.0784314, 0.223529, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_r76s0")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 
 [node name="Buttons" type="GridContainer" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/h_separation = 8
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
 columns = 2
 
 [node name="Label" type="Label" parent="MarginContainer/Buttons"]
@@ -62,7 +65,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_fyu2u")
 
-[node name="A" type="Sprite2D" parent="MarginContainer/Buttons"]
+[node name="A" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 visible = false
 position = Vector2(56, 696)
@@ -71,7 +74,7 @@ texture = ExtResource("3_vobx6")
 region_enabled = true
 region_rect = Rect2(160, 0, 16, 16)
 
-[node name="B" type="Sprite2D" parent="MarginContainer/Buttons"]
+[node name="B" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 visible = false
 position = Vector2(1292, 696)
@@ -80,7 +83,7 @@ texture = ExtResource("3_vobx6")
 region_enabled = true
 region_rect = Rect2(176, 0, 16, 16)
 
-[node name="AJump" type="Sprite2D" parent="MarginContainer/Buttons"]
+[node name="AJump" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 visible = false
 position = Vector2(56, 696)
@@ -89,7 +92,7 @@ texture = ExtResource("3_vobx6")
 region_enabled = true
 region_rect = Rect2(160, 16, 16, 16)
 
-[node name="BDash" type="Sprite2D" parent="MarginContainer/Buttons"]
+[node name="BDash" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 visible = false
 position = Vector2(1292, 692)
@@ -98,7 +101,7 @@ texture = ExtResource("3_vobx6")
 region_enabled = true
 region_rect = Rect2(176, 16, 16, 16)
 
-[node name="BSwitch" type="Sprite2D" parent="MarginContainer/Buttons"]
+[node name="BSwitch" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 visible = false
 position = Vector2(1294, 693)
