@@ -6,7 +6,9 @@ var machine : StateMachine
 func on_player_ready():
 	character = CharacterScene.first()
 	if not character: return
-	machine = character.resolve_components().resolve_machine_button1()
+	var components := character.resolve_components()
+	if not components: return
+	machine = components.resolve_machine_button1()
 	if not machine: return
 	machine.sig_state_did_transition.connect(on_button_changed)
 	on_button_changed()

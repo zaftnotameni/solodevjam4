@@ -24,6 +24,7 @@ func apply_gravity(delta:float) -> void:
 	if is_jump_cancelled:
 		character.velocity.y += stats.jump_gravity_down * delta
 	else:
+		if character.get_meta('vent', false): return
 		character.velocity.y += stats.jump_gravity_up * delta
 
 func apply_auto_movement(delta:float) -> void:

@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=4 uid="uid://bupu3rc88jh50"]
+[gd_scene load_steps=15 format=4 uid="uid://bupu3rc88jh50"]
 
 [ext_resource type="Script" path="res://game/levels/level_tooler.gd" id="1_m8ldg"]
 [ext_resource type="PackedScene" uid="uid://l6euokb2as41" path="res://game/decoration/background_decoration.tscn" id="2_unutu"]
 [ext_resource type="PackedScene" uid="uid://cr1v0ms0iny16" path="res://game/terrain/foreground_tiles.tscn" id="3_q3qwb"]
 [ext_resource type="PackedScene" uid="uid://cyxqktr555eq4" path="res://game/decoration/level_name.tscn" id="6_fugfa"]
+[ext_resource type="PackedScene" uid="uid://cffx4v55v1p1j" path="res://game/levels/level_004.tscn" id="6_ipr75"]
 [ext_resource type="PackedScene" uid="uid://4866d3bmidtx" path="res://game/powerups/power_up_next_level.tscn" id="8_tprtu"]
 [ext_resource type="PackedScene" uid="uid://bnln3d06qe2ld" path="res://game/decoration/level_dark_light.tscn" id="10_6urlq"]
 [ext_resource type="Script" path="res://game/player/spawner.gd" id="11_e0jlj"]
@@ -36,6 +37,7 @@ metadata/created_via_tool_script = true
 
 [node name="NextLevel" parent="." instance=ExtResource("8_tprtu")]
 position = Vector2(220, -280)
+scene = ExtResource("6_ipr75")
 metadata/created_via_tool_script = true
 
 [node name="DarkLight" parent="." instance=ExtResource("10_6urlq")]

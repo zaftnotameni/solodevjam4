@@ -1,7 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://4866d3bmidtx"]
+[gd_scene load_steps=10 format=3 uid="uid://4866d3bmidtx"]
 
 [ext_resource type="Script" path="res://game/powerups/button3.gd" id="1_oimfl"]
 [ext_resource type="SpriteFrames" uid="uid://b4qcehf8qwqit" path="res://game/powerups/next_level_sprite_frames.tres" id="2_ev2qo"]
+
+[sub_resource type="Gradient" id="Gradient_xa8x0"]
+offsets = PackedFloat32Array(0.00291545, 0.495627, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.0816327, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jltxt"]
+gradient = SubResource("Gradient_xa8x0")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Curve" id="Curve_vgrsd"]
+_data = [Vector2(0, 0.351457), 0.0, 0.0, 0, 0, Vector2(0.534247, 0.533632), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_s4leh"]
+colors = PackedColorArray(1, 1, 1, 0.25098, 1, 1, 1, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h45ww"]
 radius = 6.0
@@ -31,7 +48,25 @@ offset_right = 38.0
 offset_bottom = 18.0
 text = "Next"
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+light_mask = 3
+amount = 4
+lifetime = 0.5
+preprocess = 1.0
+speed_scale = 0.1
+randomness = 1.0
+texture = SubResource("GradientTexture2D_jltxt")
+emission_shape = 1
+emission_sphere_radius = 24.0
+gravity = Vector2(0, 0)
+radial_accel_min = -2000.0
+radial_accel_max = -1000.0
+scale_amount_curve = SubResource("Curve_vgrsd")
+color = Color(0.74902, 0.152941, 0.494118, 1)
+color_ramp = SubResource("Gradient_s4leh")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 4
 sprite_frames = ExtResource("2_ev2qo")
 autoplay = "default"
 
@@ -40,9 +75,11 @@ shape = SubResource("CircleShape2D_h45ww")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.74902, 0.152941, 0.494118, 1)
+energy = 2.0
 range_layer_min = -6
 range_layer_max = 2
 range_item_cull_mask = 6
 shadow_enabled = true
 shadow_color = Color(0.0862745, 0.0784314, 0.223529, 1)
+shadow_item_cull_mask = 6
 texture = SubResource("GradientTexture2D_h4ldb")

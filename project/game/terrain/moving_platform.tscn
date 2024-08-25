@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://tby5h7wc207n"]
+
+[ext_resource type="Texture2D" uid="uid://sdk57026206l" path="res://assets/aseprite/big_sheet.png" id="2_764du"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cobom"]
+size = Vector2(56, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_daypp"]
+polygon = PackedVector2Array(28, 0, 28, -8, -28, -8, -28, 0)
+
+[node name="MovingPlatform" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_764du")
+region_enabled = true
+region_rect = Rect2(1, 33, 62, 22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cobom")
+one_way_collision = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_daypp")
+occluder_light_mask = 2

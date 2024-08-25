@@ -1,1 +1,1 @@
-butler push exports/web zafteer/solo-dev-game-jam-4:linux
+butler push exports/lin zafteer/solo-dev-game-jam-4:linux

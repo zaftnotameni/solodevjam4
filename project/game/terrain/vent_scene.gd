@@ -5,7 +5,7 @@ class_name VentScene extends AnimatedSprite2D
 var character : CharacterScene
 
 var vent_max_speed : float = 200.0
-var vent_acceleration : float = 100.0
+var vent_acceleration : float = 1000.0
 
 func _physics_process(delta: float) -> void:
 	if not character: return
@@ -15,9 +15,11 @@ func _physics_process(delta: float) -> void:
 func on_body_entered(body:Node2D):
 	if body is CharacterScene: character = body
 	if character: set_physics_process(true)
+	if character: character.set_meta('vent', true)
 
 func on_body_exited(body:Node2D):
 	if body is CharacterScene: character = null
+	if body is CharacterScene: body.set_meta('vent', false)
 	if not character: set_physics_process(false)
 
 func _ready() -> void:

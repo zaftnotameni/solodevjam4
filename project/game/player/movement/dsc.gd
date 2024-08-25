@@ -21,6 +21,7 @@ func on_state_enter(_prev:Node=null) -> void:
 	is_jump_cancelled = false
 
 func apply_gravity(delta:float) -> void:
+	if character.get_meta('vent', false): return
 	character.velocity.y += stats.jump_gravity_down * delta
 	character.velocity.y = minf(character.velocity.y, stats.max_speed_from_gravity)
 
