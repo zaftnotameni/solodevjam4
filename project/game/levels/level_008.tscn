@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://1sultmwrupio"]
+[gd_scene load_steps=20 format=4 uid="uid://1sultmwrupio"]
 
 [ext_resource type="Script" path="res://game/levels/level_tooler.gd" id="1_xf33k"]
 [ext_resource type="PackedScene" uid="uid://l6euokb2as41" path="res://game/decoration/background_decoration.tscn" id="2_0qf81"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://addons/zaft_game_manager/pause/unpauses.gd" id="15_1tlvq"]
 [ext_resource type="Script" path="res://addons/zaft_game_manager/layers/at/hud.gd" id="16_hen2j"]
 [ext_resource type="PackedScene" uid="uid://owhqpn13v0yi" path="res://game/hud/buttons.tscn" id="17_3lfcx"]
+[ext_resource type="PackedScene" uid="uid://b406q8kxdufx0" path="res://game/hud/current_time.tscn" id="18_elula"]
 [ext_resource type="PackedScene" uid="uid://tby5h7wc207n" path="res://game/terrain/moving_platform.tscn" id="19_2pd7x"]
 [ext_resource type="Script" path="res://game/levels/self_drawing_path.gd" id="20_ltun8"]
 [ext_resource type="Script" path="res://game/terrain/auto_follow_path.gd" id="21_t2ept"]
@@ -113,3 +114,7 @@ position = Vector2(52, 4)
 
 [node name="MovingPlatform8" parent="SelfDrawingPath2D/AutoFollowPath" instance=ExtResource("19_2pd7x")]
 position = Vector2(108, 4)
+
+[node name="Time" type="Node" parent="."]
+script = ExtResource("16_hen2j")
+scene = ExtResource("18_elula")

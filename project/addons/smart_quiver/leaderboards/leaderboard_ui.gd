@@ -38,7 +38,13 @@ extends Control
 
 func _ready() -> void:
 	score_list.set_column_expand_ratio(1, 3)
-	var column_names := ["Rank", "Name", "Time"]
+	score_list.set_column_expand_ratio(0, 1)
+	score_list.set_column_expand_ratio(2, 2)
+	var column_names : Array
+	if Config.get_last_victory() > 10:
+		column_names = ["Rank", "Name", "Time"]
+	else:
+		column_names = ["Babb", "Baba", "Baba"]
 	for column_index in range(column_names.size()):
 		var cname: String = column_names[column_index]
 		score_list.set_column_title(column_index, cname)
@@ -75,7 +81,10 @@ func refresh_scores():
 		for score in score_data["scores"]:
 			var row: TreeItem = score_list.create_item(root)
 			row.set_text(0, str(score["rank"]))
-			row.set_text(1, str(score["name"]))
+			if Config.get_last_victory() > 10:
+				row.set_text(1, str(score["name"]))
+			else:
+				row.set_text(1, BABA.babafy(str(score["name"])))
 			row.set_text(2, string_format_time(score["score"]))
 			if score["is_current_player"]:
 				for i in range(3):

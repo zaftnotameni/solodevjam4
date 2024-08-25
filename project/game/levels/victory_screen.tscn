@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://qpqhjsbtbqx5"]
+
+[ext_resource type="Script" path="res://game/text/baba.gd" id="1_iabxg"]
+[ext_resource type="Script" path="res://game/time/shows_victory_time.gd" id="2_rqcum"]
+[ext_resource type="Script" path="res://game/time/submits_victor_time.gd" id="3_hh6pc"]
+
+[node name="VictoryScreen" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 116.0
+offset_top = 44.0
+offset_right = 1280.0
+offset_bottom = 700.0
+theme_override_font_sizes/bold_italics_font_size = 48
+theme_override_font_sizes/italics_font_size = 48
+theme_override_font_sizes/mono_font_size = 48
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 48
+bbcode_enabled = true
+text = "[center][u]Congratulations![/u]
+
+You've defeated the [u]Button Masher[/u] and the ability to use buttons for control is now restored.
+
+It came as a hefty cost though.
+While others in this world can now use [u]every button[/u],
+you had to permanently sacrifice your ability to access anything but \"A\" and \"B\".
+
+You can go back and see what has changed in the world.
+
+Oh, how could I forget, here's how long it took you to complete:
+
+
+
+Try to be a bit faster next time ;).
+[/center]"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="BABA" type="Node" parent="RichTextLabel"]
+script = ExtResource("1_iabxg")
+no_baba = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 552.0
+offset_top = 572.0
+offset_right = 840.0
+offset_bottom = 623.0
+theme_override_colors/font_color = Color(0.74902, 0.152941, 0.494118, 1)
+theme_override_font_sizes/font_size = 64
+text = "--:--:--.---"
+
+[node name="ShowsVictoryTime" type="Node" parent="Label"]
+script = ExtResource("2_rqcum")
+
+[node name="SubmitsVictoryTime" type="Node" parent="."]
+script = ExtResource("3_hh6pc")

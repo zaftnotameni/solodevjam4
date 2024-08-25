@@ -115,6 +115,8 @@ func _process(delta: float) -> void:
 
 static func promote_current_time_to_victory_time():
 	victory_time = current_time if current_time > 10 else victory_time
+	if victory_time > 10:
+		Config.set_last_victory(victory_time)
 
 static func reset_victory_time():
 	victory_time = -1.0

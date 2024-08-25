@@ -7,12 +7,14 @@ modulate = Color(1, 1, 1, 0.235294)
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(3200, 900)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
 texture = ExtResource("1_kwyte")
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.75, 0.75)
+repeat_size = Vector2(3200, 900)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D2"]
 texture = ExtResource("1_kwyte")

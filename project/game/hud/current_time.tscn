@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://b406q8kxdufx0"]
+
+[ext_resource type="Script" path="res://game/time/shows_current_time.gd" id="1_y0y6e"]
+
+[node name="CurrentTime" type="PanelContainer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -280.0
+offset_bottom = 102.0
+grow_horizontal = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.0862745, 0.0784314, 0.223529, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "--:--:--.---"
+
+[node name="ShowsCurrentTime" type="Node" parent="MarginContainer/Label"]
+script = ExtResource("1_y0y6e")

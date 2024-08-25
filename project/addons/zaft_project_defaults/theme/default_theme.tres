@@ -1,25 +1,45 @@
 [gd_resource type="Theme" load_steps=10 format=3 uid="uid://p0nwmwqm8l0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3kre"]
-bg_color = Color(0.129412, 0.0901961, 0.333333, 1)
+bg_color = Color(0.345098, 0.0588235, 0.54902, 1)
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_52o6v"]
-bg_color = Color(0.129412, 0.0901961, 0.333333, 1)
+bg_color = Color(0.345098, 0.0588235, 0.54902, 1)
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bixck"]
-bg_color = Color(0.129412, 0.0901961, 0.333333, 1)
+bg_color = Color(0.482353, 0.0901961, 0.529412, 1)
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xw5no"]
-bg_color = Color(0.027451, 0, 0.172549, 1)
+bg_color = Color(0.215686, 0.0313726, 0.568627, 1)
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xlxn"]
-bg_color = Color(0.25098, 0.305882, 0.54902, 1)
+bg_color = Color(0.482353, 0.0901961, 0.529412, 1)
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vhpik"]
-bg_color = Color(0.129412, 0.0901961, 0.333333, 1)
+bg_color = Color(0.345098, 0.0588235, 0.54902, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etakj"]
-bg_color = Color(0.027451, 0, 0.172549, 1)
+bg_color = Color(0.215686, 0.0313726, 0.568627, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ofhu"]
 bg_color = Color(0.027451, 0, 0.172549, 1)
@@ -28,11 +48,11 @@ bg_color = Color(0.027451, 0, 0.172549, 1)
 bg_color = Color(0.0283333, 0, 0.17, 1)
 
 [resource]
-Button/colors/font_color = Color(0.207843, 0.635294, 0.815686, 1)
-Button/colors/font_focus_color = Color(0.709804, 1, 0.34902, 1)
-Button/colors/font_hover_color = Color(0.709804, 1, 0.34902, 1)
-Button/colors/font_hover_pressed_color = Color(1, 0.952941, 0.352941, 1)
-Button/colors/font_pressed_color = Color(1, 0.952941, 0.352941, 1)
+Button/colors/font_color = Color(0.74902, 0.152941, 0.494118, 1)
+Button/colors/font_focus_color = Color(0.74902, 0.152941, 0.494118, 1)
+Button/colors/font_hover_color = Color(0.74902, 0.152941, 0.494118, 1)
+Button/colors/font_hover_pressed_color = Color(0.74902, 0.152941, 0.494118, 1)
+Button/colors/font_pressed_color = Color(0.74902, 0.152941, 0.494118, 1)
 Button/constants/align_to_largest_stylebox = 1
 Button/font_sizes/font_size = 48
 Button/styles/focus = SubResource("StyleBoxFlat_f3kre")
@@ -42,12 +62,12 @@ Button/styles/normal = SubResource("StyleBoxFlat_xw5no")
 Button/styles/pressed = SubResource("StyleBoxFlat_5xlxn")
 Label/colors/font_color = Color(0.482353, 0.0901961, 0.529412, 1)
 Label/font_sizes/font_size = 48
-LineEdit/colors/caret_color = Color(1, 0.952941, 0.352941, 1)
-LineEdit/colors/font_color = Color(0.207843, 0.635294, 0.815686, 1)
-LineEdit/colors/font_placeholder_color = Color(0.25098, 0.305882, 0.54902, 1)
-LineEdit/colors/font_uneditable_color = Color(0.270588, 0.729412, 0.282353, 1)
+LineEdit/colors/caret_color = Color(0.74902, 0.152941, 0.494118, 1)
+LineEdit/colors/font_color = Color(0.74902, 0.152941, 0.494118, 1)
+LineEdit/colors/font_placeholder_color = Color(0.482353, 0.0901961, 0.529412, 1)
+LineEdit/colors/font_uneditable_color = Color(0.345098, 0.0588235, 0.54902, 1)
 LineEdit/colors/selection_color = Color(0.0283333, 0, 0.17, 0.52549)
-LineEdit/font_sizes/font_size = 48
+LineEdit/font_sizes/font_size = 64
 LineEdit/styles/focus = SubResource("StyleBoxFlat_vhpik")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_etakj")
 LineEdit/styles/read_only = SubResource("StyleBoxFlat_8ofhu")

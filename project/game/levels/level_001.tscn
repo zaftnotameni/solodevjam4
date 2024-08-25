@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://owhqpn13v0yi" path="res://game/hud/buttons.tscn" id="2_37i6a"]
 [ext_resource type="Script" path="res://addons/zaft_game_manager/pause/unpauses.gd" id="3_jo6bw"]
 [ext_resource type="Script" path="res://game/camera/follow.gd" id="4_m4l0j"]
+[ext_resource type="PackedScene" uid="uid://b406q8kxdufx0" path="res://game/hud/current_time.tscn" id="4_ql0ue"]
 [ext_resource type="PackedScene" uid="uid://cr1v0ms0iny16" path="res://game/terrain/foreground_tiles.tscn" id="5_0tr2d"]
 [ext_resource type="Script" path="res://game/player/spawner.gd" id="5_upofl"]
 [ext_resource type="PackedScene" uid="uid://l6euokb2as41" path="res://game/decoration/background_decoration.tscn" id="6_qsges"]
-[ext_resource type="PackedScene" uid="uid://vkd48ynldwrp" path="res://game/powerups/power_up_pause.tscn" id="8_j5sh4"]
 [ext_resource type="PackedScene" uid="uid://4866d3bmidtx" path="res://game/powerups/power_up_next_level.tscn" id="9_pvge1"]
 [ext_resource type="PackedScene" uid="uid://qlcfs3xm1tnu" path="res://game/levels/level_002.tscn" id="10_ojbnw"]
 [ext_resource type="PackedScene" uid="uid://cyxqktr555eq4" path="res://game/decoration/level_name.tscn" id="10_ysmoy"]
@@ -21,6 +21,10 @@ script = ExtResource("1_f4xuw")
 [node name="AtHUD" type="Node" parent="."]
 script = ExtResource("1_vpf0b")
 scene = ExtResource("2_37i6a")
+
+[node name="Time" type="Node" parent="."]
+script = ExtResource("1_vpf0b")
+scene = ExtResource("4_ql0ue")
 
 [node name="Unpauses" type="Node" parent="."]
 script = ExtResource("3_jo6bw")
@@ -40,10 +44,6 @@ tile_map_data = PackedByteArray("AAD9/wIAAAACAAAAAAD9/wMAAAALAAAAAAD+/wIAAAACAAA
 [node name="PlayerSpawner" type="Area2D" parent="."]
 script = ExtResource("5_upofl")
 active = true
-
-[node name="PowerUpPause" parent="." instance=ExtResource("8_j5sh4")]
-visible = false
-position = Vector2(72, 180)
 
 [node name="PowerUpNextLevel" parent="." instance=ExtResource("9_pvge1")]
 position = Vector2(496, 0)

@@ -11,14 +11,18 @@ var next_level_scene : PackedScene = load('res://game/powerups/power_up_next_lev
 var buttons_scene : PackedScene = load('res://game/hud/buttons.tscn')
 var level_dark_light_scene : PackedScene = load('res://game/decoration/level_dark_light.tscn')
 var character_scene : PackedScene = load('res://game/player/character.tscn')
+var current_time_scene : PackedScene = load('res://game/hud/current_time.tscn')
 
 func on_tooled():
 	if not Engine.is_editor_hint(): return
 	if not Tool.is_owned_by_edited_scene(self): return
 	Tool.remove_all_children_created_via_tool_from(self)
-	var at_hud := AtHUD.new()
-	at_hud.scene = buttons_scene
-	at_hud.name = 'ButtonsHUD'
+	var at_hud_buttons := AtHUD.new()
+	at_hud_buttons.scene = buttons_scene
+	at_hud_buttons.name = 'ButtonsHUD'
+	var at_hud_time := AtHUD.new()
+	at_hud_time.scene = current_time_scene
+	at_hud_time.name = 'TimeHUD'
 	var spawner := PlayerSpawner.new()
 	spawner.active = true
 	spawner.spawn_on_ready = true
@@ -51,7 +55,8 @@ func on_tooled():
 	await Tool.tool_add_child(owner, camera)
 	await Tool.tool_add_child(owner, game)
 	await Tool.tool_add_child(owner, unpauses)
-	await Tool.tool_add_child(owner, at_hud)
+	await Tool.tool_add_child(owner, at_hud_buttons)
+	await Tool.tool_add_child(owner, at_hud_time)
 
 
 func set_tooled(v:bool):

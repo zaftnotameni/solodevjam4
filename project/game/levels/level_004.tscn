@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://cffx4v55v1p1j"]
+[gd_scene load_steps=17 format=4 uid="uid://cffx4v55v1p1j"]
 
 [ext_resource type="Script" path="res://game/levels/level_tooler.gd" id="1_7pcrp"]
 [ext_resource type="PackedScene" uid="uid://l6euokb2as41" path="res://game/decoration/background_decoration.tscn" id="2_llv43"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://addons/zaft_game_manager/state/in/game.gd" id="14_1k0in"]
 [ext_resource type="Script" path="res://addons/zaft_game_manager/pause/unpauses.gd" id="15_m6lih"]
 [ext_resource type="Script" path="res://addons/zaft_game_manager/layers/at/hud.gd" id="16_1mrjx"]
+[ext_resource type="PackedScene" uid="uid://b406q8kxdufx0" path="res://game/hud/current_time.tscn" id="16_efkv2"]
 [ext_resource type="PackedScene" uid="uid://owhqpn13v0yi" path="res://game/hud/buttons.tscn" id="17_0t7mt"]
 [ext_resource type="PackedScene" uid="uid://cpcygowuihqdk" path="res://game/terrain/vent.tscn" id="18_2nbrm"]
 
@@ -71,3 +72,7 @@ metadata/created_via_tool_script = true
 
 [node name="Vent" parent="." instance=ExtResource("18_2nbrm")]
 position = Vector2(160, 72)
+
+[node name="Time" type="Node" parent="."]
+script = ExtResource("16_1mrjx")
+scene = ExtResource("16_efkv2")

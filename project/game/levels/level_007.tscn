@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://dxgyklu1r16ae"]
+[gd_scene load_steps=20 format=4 uid="uid://dxgyklu1r16ae"]
 
 [ext_resource type="Script" path="res://game/levels/level_tooler.gd" id="1_8slyi"]
 [ext_resource type="PackedScene" uid="uid://l6euokb2as41" path="res://game/decoration/background_decoration.tscn" id="2_r6w1r"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://game/levels/self_drawing_path.gd" id="16_gkpsa"]
 [ext_resource type="PackedScene" uid="uid://owhqpn13v0yi" path="res://game/hud/buttons.tscn" id="17_67ioy"]
 [ext_resource type="PackedScene" uid="uid://tby5h7wc207n" path="res://game/terrain/moving_platform.tscn" id="18_afutm"]
+[ext_resource type="PackedScene" uid="uid://b406q8kxdufx0" path="res://game/hud/current_time.tscn" id="18_pwm2h"]
 
 [sub_resource type="Curve2D" id="Curve2D_qhyvk"]
 _data = {
@@ -126,3 +127,7 @@ script = ExtResource("15_1r8xx")
 speed = 0.4
 
 [node name="MovingPlatform" parent="Path2D3/AutoFollowPath" instance=ExtResource("18_afutm")]
+
+[node name="Time" type="Node" parent="."]
+script = ExtResource("16_gj57r")
+scene = ExtResource("18_pwm2h")

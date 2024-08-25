@@ -51,6 +51,7 @@ text = " < "
 
 [node name="ScoresLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/Nav"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Times"
