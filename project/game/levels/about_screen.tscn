@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://xopkmmubhns2"]
+[gd_scene load_steps=16 format=4 uid="uid://xopkmmubhns2"]
 
 [ext_resource type="Script" path="res://game/levels/level_tooler.gd" id="1_3p74e"]
 [ext_resource type="PackedScene" uid="uid://l6euokb2as41" path="res://game/decoration/background_decoration.tscn" id="2_t2rn4"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://game/camera/follow.gd" id="13_p62k4"]
 [ext_resource type="Script" path="res://addons/zaft_game_manager/state/in/game.gd" id="14_6touc"]
 [ext_resource type="Script" path="res://game/text/baba.gd" id="14_vpsw5"]
+[ext_resource type="Script" path="res://game/music/requests_song.gd" id="15_ia22e"]
 [ext_resource type="Script" path="res://addons/zaft_game_manager/pause/unpauses.gd" id="15_ppwol"]
 [ext_resource type="Script" path="res://addons/zaft_game_manager/layers/at/hud.gd" id="16_l4d8d"]
 [ext_resource type="PackedScene" uid="uid://owhqpn13v0yi" path="res://game/hud/buttons.tscn" id="17_ba440"]
@@ -82,3 +83,7 @@ Font: https://datagoblin.itch.io/monogram"
 
 [node name="BABA" type="Node" parent="RichTextLabel"]
 script = ExtResource("14_vpsw5")
+
+[node name="RequestsSong" type="Node" parent="."]
+script = ExtResource("15_ia22e")
+song = "title"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cua0kwrl73tu6"]
+[gd_scene load_steps=14 format=4 uid="uid://cua0kwrl73tu6"]
 
 [ext_resource type="Script" path="res://addons/zaft_game_manager/state/in/game.gd" id="1_f4xuw"]
 [ext_resource type="Script" path="res://addons/zaft_game_manager/layers/at/hud.gd" id="1_vpf0b"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://4866d3bmidtx" path="res://game/powerups/power_up_next_level.tscn" id="9_pvge1"]
 [ext_resource type="PackedScene" uid="uid://qlcfs3xm1tnu" path="res://game/levels/level_002.tscn" id="10_ojbnw"]
 [ext_resource type="PackedScene" uid="uid://cyxqktr555eq4" path="res://game/decoration/level_name.tscn" id="10_ysmoy"]
+[ext_resource type="Script" path="res://game/music/requests_song.gd" id="13_qddnx"]
 
 [node name="Level001" type="Node2D"]
 
@@ -64,3 +65,7 @@ range_layer_max = 2
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.639216)
 shadow_item_cull_mask = 2
+
+[node name="RequestsSong" type="Node" parent="."]
+script = ExtResource("13_qddnx")
+song = "level1"

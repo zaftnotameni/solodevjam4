@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://jok8tx681o0r"]
+[gd_scene load_steps=16 format=4 uid="uid://jok8tx681o0r"]
 
 [ext_resource type="PackedScene" uid="uid://dgygkbtm0burn" path="res://addons/smart_quiver/leaderboards/leaderboard_ui.tscn" id="1_5rdv2"]
 [ext_resource type="Script" path="res://game/levels/level_tooler.gd" id="1_swguh"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bal7ofwbeschm" path="res://game/player/character.tscn" id="12_gr6rw"]
 [ext_resource type="Script" path="res://game/camera/follow.gd" id="13_22xdv"]
 [ext_resource type="Script" path="res://addons/zaft_game_manager/state/in/game.gd" id="14_jpnpx"]
+[ext_resource type="Script" path="res://game/music/requests_song.gd" id="15_1mlys"]
 [ext_resource type="Script" path="res://addons/zaft_game_manager/pause/unpauses.gd" id="15_353ph"]
 [ext_resource type="Script" path="res://addons/zaft_game_manager/layers/at/hud.gd" id="16_te06n"]
 [ext_resource type="PackedScene" uid="uid://owhqpn13v0yi" path="res://game/hud/buttons.tscn" id="17_8s2i4"]
@@ -68,3 +69,7 @@ metadata/created_via_tool_script = true
 script = ExtResource("16_te06n")
 scene = ExtResource("17_8s2i4")
 metadata/created_via_tool_script = true
+
+[node name="RequestsSong" type="Node" parent="."]
+script = ExtResource("15_1mlys")
+song = "title"

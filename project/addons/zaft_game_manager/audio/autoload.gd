@@ -4,6 +4,8 @@ const GROUP := 'autoload_audio'
 
 enum AudioBus { Any = -1, Master = 0, BGM = 1, SFX = 2, UI = 3 }
 
+signal sig_named_song_start_requested(named_song:String)
+signal sig_named_song_stop_requested(named_song:String)
 signal sig_volume_changed(which_bus:AudioBus, volume_linear_0_100:float)
 
 @onready var master_test_sound : AudioStreamPlayer = $Master/TestSound

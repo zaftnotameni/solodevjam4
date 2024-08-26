@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dd2g4xk2jrd3e"]
+[gd_scene load_steps=16 format=4 uid="uid://dd2g4xk2jrd3e"]
 
 [ext_resource type="PackedScene" uid="uid://cr1v0ms0iny16" path="res://game/terrain/foreground_tiles.tscn" id="1_3i78i"]
 [ext_resource type="Script" path="res://game/camera/follow.gd" id="2_c6pha"]
@@ -11,9 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://dlfkm1nvene8n" path="res://game/powerups/power_up_options_menu.tscn" id="10_75bv5"]
 [ext_resource type="Script" path="res://game/powerups/level_001_setter.gd" id="10_l0wwr"]
 [ext_resource type="PackedScene" uid="uid://l6euokb2as41" path="res://game/decoration/background_decoration.tscn" id="11_pwvpx"]
-[ext_resource type="Script" path="res://game/music/title_screen.gd" id="12_dnhoa"]
 [ext_resource type="PackedScene" uid="uid://t2tvsrkdb1pd" path="res://game/powerups/power_up_about_menu.tscn" id="13_xlomt"]
 [ext_resource type="PackedScene" uid="uid://sgcv4k0g4w56" path="res://game/powerups/power_up_leaderboards_menu.tscn" id="14_0uux6"]
+[ext_resource type="Script" path="res://game/music/requests_song.gd" id="15_o6rrg"]
+[ext_resource type="Script" path="res://game/time/resets_time.gd" id="15_q4kgr"]
 
 [node name="TitleScreen" type="Node2D"]
 
@@ -73,5 +74,9 @@ what = 0
 [node name="Leaderboard" parent="." instance=ExtResource("14_0uux6")]
 position = Vector2(-80, -16)
 
-[node name="TitleScreenBGM" type="AudioStreamPlayer" parent="."]
-script = ExtResource("12_dnhoa")
+[node name="TitleSong" type="Node" parent="."]
+script = ExtResource("15_o6rrg")
+song = "title"
+
+[node name="ResetsTime" type="Node" parent="."]
+script = ExtResource("15_q4kgr")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://gwhonwbqxfua"]
+[gd_scene load_steps=20 format=4 uid="uid://gwhonwbqxfua"]
 
 [ext_resource type="Script" path="res://game/levels/level_tooler.gd" id="1_gkla0"]
 [ext_resource type="PackedScene" uid="uid://l6euokb2as41" path="res://game/decoration/background_decoration.tscn" id="2_6l03h"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://addons/zaft_game_manager/pause/unpauses.gd" id="15_px2ly"]
 [ext_resource type="Script" path="res://addons/zaft_game_manager/layers/at/hud.gd" id="16_fjsry"]
 [ext_resource type="PackedScene" uid="uid://owhqpn13v0yi" path="res://game/hud/buttons.tscn" id="17_2bmjo"]
+[ext_resource type="Script" path="res://game/music/requests_song.gd" id="17_52nmr"]
 [ext_resource type="PackedScene" uid="uid://cguvlukv8j1qd" path="res://addons/zaft_game_manager/audio/ui/bgm_audio_slider.tscn" id="18_jc5na"]
 [ext_resource type="PackedScene" uid="uid://c3efwrtyxp0yn" path="res://addons/zaft_game_manager/audio/ui/sfx_audio_slider.tscn" id="19_cmyit"]
 
@@ -100,3 +101,7 @@ script = ExtResource("15_681h7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SfxAudioSlider/Area2D"]
 position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_pffiy")
+
+[node name="RequestsSong" type="Node" parent="."]
+script = ExtResource("17_52nmr")
+song = "title"

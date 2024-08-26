@@ -1,6 +1,7 @@
 class_name BABA extends Node
 
 signal sig_display_finished()
+signal sig_show_finished()
 
 @export var target_label : Label
 @export var target_rich : RichTextLabel
@@ -36,6 +37,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		for target:Control in targets():
 			if not target: continue
 			target.text = baba_text
+		sig_show_finished.emit()
 		return
 	if DefaultInput.is_event_player_button_one_pressed(event) and (not tween or not tween.is_running()):
 		get_viewport().set_input_as_handled()
@@ -72,3 +74,4 @@ func _ready() -> void:
 			var txt = baba_text.substr(0, i + 1)
 			tween.tween_property(target, 'text', txt, 0.02)
 		await tween.finished
+		sig_show_finished.emit()

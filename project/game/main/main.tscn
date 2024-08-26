@@ -1,10 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://byhr11mj3nvel"]
+[gd_scene load_steps=6 format=3 uid="uid://byhr11mj3nvel"]
 
 [ext_resource type="PackedScene" uid="uid://b82yl0qyvpbxf" path="res://game/levels/story.tscn" id="2_pbrge"]
 [ext_resource type="Script" path="res://addons/zaft_game_manager/layers/at/game.gd" id="3_0w8ht"]
+[ext_resource type="Environment" uid="uid://bddxng37d1lgl" path="res://addons/zaft_project_defaults/world/default_world_environment.tres" id="3_kocnm"]
+[ext_resource type="Script" path="res://game/music/level_song.gd" id="4_mp5uc"]
+[ext_resource type="Script" path="res://game/music/title_screen.gd" id="5_xlwa3"]
 
 [node name="Main" type="Node2D"]
 
 [node name="AtGame" type="Node" parent="."]
 script = ExtResource("3_0w8ht")
 scene = ExtResource("2_pbrge")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_kocnm")
+
+[node name="LevelBGM" type="AudioStreamPlayer" parent="."]
+script = ExtResource("4_mp5uc")
+
+[node name="TitleScreenBGM" type="AudioStreamPlayer" parent="."]
+script = ExtResource("5_xlwa3")
