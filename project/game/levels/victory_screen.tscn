@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://qpqhjsbtbqx5"]
+[gd_scene load_steps=10 format=3 uid="uid://qpqhjsbtbqx5"]
 
 [ext_resource type="Script" path="res://game/text/baba.gd" id="1_iabxg"]
 [ext_resource type="Script" path="res://game/levels/victory_screen.gd" id="1_nbl12"]
@@ -6,8 +6,49 @@
 [ext_resource type="Script" path="res://game/time/submits_victor_time.gd" id="3_hh6pc"]
 [ext_resource type="Texture2D" uid="uid://sdk57026206l" path="res://assets/aseprite/big_sheet.png" id="5_e3305"]
 
+[sub_resource type="Gradient" id="Gradient_hw604"]
+offsets = PackedFloat32Array(0, 0.524781, 1)
+colors = PackedColorArray(1, 1, 1, 0.584314, 1, 1, 1, 0.182492, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0twtv"]
+gradient = SubResource("Gradient_hw604")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.846154, 0.149573)
+
+[sub_resource type="Curve" id="Curve_k5q6e"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_hy5p5"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="VictoryScreen" type="Node2D"]
 script = ExtResource("1_nbl12")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(672, 304)
+amount = 16
+speed_scale = 0.1
+explosiveness = 0.2
+randomness = 1.0
+lifetime_randomness = 1.0
+texture = SubResource("GradientTexture2D_0twtv")
+emission_shape = 3
+emission_rect_extents = Vector2(600, 400)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 10)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+orbit_velocity_min = -0.2
+orbit_velocity_max = 0.2
+tangential_accel_min = -100.0
+tangential_accel_max = 100.0
+damping_max = 100.0
+damping_curve = SubResource("Curve_k5q6e")
+color = Color(0.74902, 0.152941, 0.494118, 1)
+color_ramp = SubResource("Gradient_hy5p5")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 116.0
@@ -20,21 +61,22 @@ theme_override_font_sizes/mono_font_size = 48
 theme_override_font_sizes/normal_font_size = 48
 theme_override_font_sizes/bold_font_size = 48
 bbcode_enabled = true
-text = "[center][u]Congratulations![/u]
+text = "
+[center][u]Congratulations![/u]
 
 You've defeated the [u]Button Masher[/u] and the ability to use buttons for control is now restored.
 
-It came as a hefty cost though.
-While others in this world can now use [u]every button[/u],
-you had to permanently sacrifice your ability to access anything but \"A\" and \"B\".
+Now you can decipher the truth behind the words in this world.
 
-You can go back and see what has changed in the world.
+
+
+
 
 Oh, how could I forget, here's how long it took you to complete:
 
 
 
-Try to be a bit faster next time ;).
+Try to be a bit faster next time ;)
 [/center]"
 scroll_active = false
 shortcut_keys_enabled = false
@@ -66,3 +108,6 @@ scale = Vector2(8, 8)
 texture = ExtResource("5_e3305")
 region_enabled = true
 region_rect = Rect2(160, 0, 16, 16)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.4
