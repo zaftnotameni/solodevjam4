@@ -111,3 +111,5 @@ region_rect = Rect2(160, 0, 16, 16)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.4
+range_layer_min = -6
+range_layer_max = 2

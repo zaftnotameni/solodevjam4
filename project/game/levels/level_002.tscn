@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://qlcfs3xm1tnu"]
+[gd_scene load_steps=18 format=4 uid="uid://qlcfs3xm1tnu"]
 
 [ext_resource type="PackedScene" uid="uid://cr1v0ms0iny16" path="res://game/terrain/foreground_tiles.tscn" id="1_eviuk"]
 [ext_resource type="PackedScene" uid="uid://l6euokb2as41" path="res://game/decoration/background_decoration.tscn" id="1_hgds3"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bnln3d06qe2ld" path="res://game/decoration/level_dark_light.tscn" id="13_cgeq5"]
 [ext_resource type="Script" path="res://game/powerups/enables_dash.gd" id="15_hfih0"]
 [ext_resource type="PackedScene" uid="uid://b406q8kxdufx0" path="res://game/hud/current_time.tscn" id="15_qtl8q"]
+[ext_resource type="Script" path="res://game/music/requests_song.gd" id="17_lssiq"]
 
 [node name="Level002" type="Node2D"]
 
@@ -71,3 +72,7 @@ scene = ExtResource("15_qtl8q")
 
 [node name="EnablesDash" type="Node" parent="."]
 script = ExtResource("15_hfih0")
+
+[node name="RequestsSong" type="Node" parent="."]
+script = ExtResource("17_lssiq")
+song = "level2"

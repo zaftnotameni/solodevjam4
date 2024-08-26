@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bupu3rc88jh50"]
+[gd_scene load_steps=18 format=4 uid="uid://bupu3rc88jh50"]
 
 [ext_resource type="Script" path="res://game/levels/level_tooler.gd" id="1_m8ldg"]
 [ext_resource type="PackedScene" uid="uid://l6euokb2as41" path="res://game/decoration/background_decoration.tscn" id="2_unutu"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b406q8kxdufx0" path="res://game/hud/current_time.tscn" id="15_m4hid"]
 [ext_resource type="Script" path="res://addons/zaft_game_manager/layers/at/hud.gd" id="16_ipwgu"]
 [ext_resource type="PackedScene" uid="uid://owhqpn13v0yi" path="res://game/hud/buttons.tscn" id="17_l0xtn"]
+[ext_resource type="Script" path="res://game/music/requests_song.gd" id="17_y5j6y"]
 
 [node name="Level003_tscn" type="Node2D"]
 
@@ -78,3 +79,7 @@ metadata/created_via_tool_script = true
 [node name="Time" type="Node" parent="."]
 script = ExtResource("16_ipwgu")
 scene = ExtResource("15_m4hid")
+
+[node name="RequestsSong" type="Node" parent="."]
+script = ExtResource("17_y5j6y")
+song = "level1"

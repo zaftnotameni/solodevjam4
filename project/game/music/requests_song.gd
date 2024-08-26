@@ -1,6 +1,6 @@
 class_name RequestsSong extends Node
 
-@export_enum('none', 'level1', 'title') var song : String
+@export_enum('none', 'level1', 'level2', 'victory', 'title') var song : String
 @export var stops_on_exit : bool = false
 @export var stops_on_ready : bool = false
 
