@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dxgyklu1r16ae"]
+[gd_scene load_steps=23 format=4 uid="uid://dxgyklu1r16ae"]
 
 [ext_resource type="Script" path="res://game/levels/level_tooler.gd" id="1_8slyi"]
 [ext_resource type="PackedScene" uid="uid://l6euokb2as41" path="res://game/decoration/background_decoration.tscn" id="2_r6w1r"]
@@ -18,10 +18,23 @@
 [ext_resource type="PackedScene" uid="uid://owhqpn13v0yi" path="res://game/hud/buttons.tscn" id="17_67ioy"]
 [ext_resource type="PackedScene" uid="uid://tby5h7wc207n" path="res://game/terrain/moving_platform.tscn" id="18_afutm"]
 [ext_resource type="PackedScene" uid="uid://b406q8kxdufx0" path="res://game/hud/current_time.tscn" id="18_pwm2h"]
+[ext_resource type="PackedScene" uid="uid://yjhilfepqiwh" path="res://game/decoration/background_tiles_16.tscn" id="19_wd2cb"]
 
 [sub_resource type="Curve2D" id="Curve2D_qhyvk"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 92, -44, 0, 0, 0, 0, 132, -4, 0, 0, 0, 0, 172, -44, 0, 0, 0, 0, 132, -84, 0, 0, 0, 0, 92, -44)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_h0eim"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 384, -172, 0, 0, 0, 0, 332, -116, 0, 0, 0, 0, 260, -164, 0, 0, 0, 0, 182.648, -128.6, 0, 0, 0, 0, 108, -172, 0, 0, 0, 0, 260, -264, 0, 0, 0, 0, 384, -172)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_2uu01"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 536, -132, 0, 0, 0, 0, 492, -116, 0, 0, 0, 0, 436, -188, 0, 0, 0, 0, 492, -264, 0, 0, 0, 0, 536, -132)
 }
 point_count = 5
 
@@ -47,7 +60,7 @@ text = "Level 07: Thinking outside of the Box"
 metadata/created_via_tool_script = true
 
 [node name="NextLevel" parent="." instance=ExtResource("8_lk7c8")]
-position = Vector2(540, -92)
+position = Vector2(-3, -176)
 scene = ExtResource("6_00kn2")
 metadata/created_via_tool_script = true
 
@@ -85,6 +98,12 @@ position = Vector2(-116, -8)
 
 [node name="MovingPlatform2" parent="." instance=ExtResource("18_afutm")]
 position = Vector2(-60, -8)
+
+[node name="MovingPlatform3" parent="." instance=ExtResource("18_afutm")]
+position = Vector2(28, -156)
+
+[node name="MovingPlatform4" parent="." instance=ExtResource("18_afutm")]
+position = Vector2(-28, -156)
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(-42, 0)
@@ -131,3 +150,55 @@ speed = 0.4
 [node name="Time" type="Node" parent="."]
 script = ExtResource("16_gj57r")
 scene = ExtResource("18_pwm2h")
+
+[node name="Path2D4" type="Path2D" parent="."]
+curve = SubResource("Curve2D_h0eim")
+script = ExtResource("16_gkpsa")
+
+[node name="AutoFollowPath" type="PathFollow2D" parent="Path2D4"]
+position = Vector2(384, -172)
+rotates = false
+script = ExtResource("15_1r8xx")
+speed = 0.15
+
+[node name="MovingPlatform5" parent="Path2D4/AutoFollowPath" instance=ExtResource("18_afutm")]
+
+[node name="AutoFollowPath2" type="PathFollow2D" parent="Path2D4"]
+position = Vector2(108.613, -171.494)
+progress = 333.222
+rotates = false
+script = ExtResource("15_1r8xx")
+speed = 0.15
+
+[node name="MovingPlatform5" parent="Path2D4/AutoFollowPath2" instance=ExtResource("18_afutm")]
+
+[node name="AutoFollowPath3" type="PathFollow2D" parent="Path2D4"]
+position = Vector2(256.674, -162.478)
+progress = 166.611
+rotates = false
+script = ExtResource("15_1r8xx")
+speed = 0.15
+
+[node name="MovingPlatform5" parent="Path2D4/AutoFollowPath3" instance=ExtResource("18_afutm")]
+
+[node name="Path2D5" type="Path2D" parent="."]
+curve = SubResource("Curve2D_2uu01")
+script = ExtResource("16_gkpsa")
+
+[node name="AutoFollowPath" type="PathFollow2D" parent="Path2D5"]
+position = Vector2(536, -132)
+rotates = false
+script = ExtResource("15_1r8xx")
+
+[node name="MovingPlatform6" parent="Path2D5/AutoFollowPath" instance=ExtResource("18_afutm")]
+
+[node name="AutoFollowPath2" type="PathFollow2D" parent="Path2D5"]
+position = Vector2(464.329, -226.446)
+progress = 185.788
+rotates = false
+script = ExtResource("15_1r8xx")
+
+[node name="MovingPlatform6" parent="Path2D5/AutoFollowPath2" instance=ExtResource("18_afutm")]
+
+[node name="BackgroundTiles16" parent="." instance=ExtResource("19_wd2cb")]
+tile_map_data = PackedByteArray("AAAFAAEAAAAAABwAAAAGAAEAAAAAABwAAAAHAAEAAAAAABwAAAAIAAEAAAAAABwAAAAJAAEAAAAAABwAAAAKAAEAAAAAABwAAAAIAAAAAAAAABwAAAAJAAAAAAAAABwAAAAKAAAAAAAAABwAAAD3//P/AAAKABwAAFD3//T/AAAKABwAAFD3//X/AAAKABwAAFD3//b/AAAKABwAAFD3//f/AAAKABwAAFD5/wAAAAACABwAAAD7/wEAAAACABwAAAD3/wAAAAACABwAAAD3/wEAAAACABwAAAD4/wEAAAACABwAAAD5/wEAAAACABwAAAD6/wEAAAACABwAAAD8/wEAAAADABwAAAD4/wAAAAADABwAAAD6/wAAAAADABwAAAD7/wAAAAACABwAAAD8/wAAAAACABwAAAD9/wAAAAACABwAAAD9/wEAAAACABwAAAAdAPz/AAALABwAAAAjAPr/AAAEABwAAAA=")
