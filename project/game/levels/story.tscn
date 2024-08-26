@@ -7,6 +7,11 @@
 [node name="Story" type="Node2D"]
 script = ExtResource("1_s56oe")
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.3
+range_layer_min = -10
+range_layer_max = 2
+
 [node name="NoName" type="Node2D" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -25,7 +30,8 @@ theme_override_font_sizes/bold_font_size = 32
 bbcode_enabled = true
 text = "An impractical main character has bestowed upon us a curse that blocks us from using any controls.
 
-A brave magician. practically a wizard, however managed to partially block the complete annihilation of all controls, keeping 2 buttons still functioning, we will refer to them from now on as \"A\" and \"B\".
+A brave magician. practically a wizard, somehow managed to partially block the complete annihilation of all controls.
+Thanks to the wizard's cunning, 2 buttons still function, we will refer to them from now on as \"A\" and \"B\".
 
 Oh, before we start this story...
 I ALWAYS forget!
@@ -56,9 +62,9 @@ theme_override_font_sizes/bold_font_size = 32
 bbcode_enabled = true
 text = "An impractical main character has bestowed upon us a curse that blocks us from using any controls.
 
-A brave magician \"PLAYER_NAME\". practically a wizard, however managed to partially block the complete annihilation of all controls, keeping 2 buttons still functioning, we will refer to them from now on as \"A\" and \"B\".
+A brave magician \"PLAYER_NAME\". practically a wizard managed to partially block the complete annihilation of all controls, keeping 2 buttons still functioning, we will refer to them from now on as \"A\" and \"B\".
 
-The very intrepid \"PLAYER_NAME\", now enters the domain of our impractical antagonist - the \"Button Masher\" - seeking to completely break the spell.
+The very intrepid \"PLAYER_NAME\" now enters the domain of our impractical antagonist - the \"Button Masher\" - seeking to completely break the spell.
 
 Best of Luck, brave \"PLAYER_NAME\"!"
 fit_content = true

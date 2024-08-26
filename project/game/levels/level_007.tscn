@@ -193,7 +193,7 @@ script = ExtResource("15_1r8xx")
 [node name="MovingPlatform6" parent="Path2D5/AutoFollowPath" instance=ExtResource("18_afutm")]
 
 [node name="AutoFollowPath2" type="PathFollow2D" parent="Path2D5"]
-position = Vector2(464.329, -226.446)
+position = Vector2(464.328, -226.446)
 progress = 185.788
 rotates = false
 script = ExtResource("15_1r8xx")
