@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpymos74aq1wt"]
+
+[ext_resource type="SpriteFrames" uid="uid://brjrmctxy1mnb" path="res://game/decoration/chicken_sprite_frames.tres" id="1_qrbdb"]
+
+[node name="Chicken" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_qrbdb")
+autoplay = "default"
+frame_progress = 0.133194

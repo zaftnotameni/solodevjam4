@@ -68,13 +68,16 @@ func show_active():
 		Named.NOPE:
 			a.show()
 			no_name.show()
+			show_chicken()
 		Named.ASK:
 			a.hide()
 			ask_name.show()
 			name_input.grab_focus.call_deferred()
+			hide_chicken()
 		Named.YEAP:
 			a.show()
 			with_name.show()
+			hide_chicken()
 
 func hide_all():
 	with_name.hide()
@@ -92,3 +95,21 @@ func update_named_state(new_named_state:Named=named):
 	named = new_named_state
 	active_baba_process_input()
 	show_active()
+
+@onready var chicken : AnimatedSprite2D = %Chicken
+
+var chicken_tween : Tween
+
+func show_chicken():
+	chicken.show()
+	chicken_tween = TweenUtil.tween_fresh_eased_in_out_cubic(chicken_tween)
+	chicken_tween.tween_property(chicken, 'position:x', 1100, 2.5).as_relative()
+	chicken_tween.tween_property(chicken, 'scale:x', -4, 0.25)
+	chicken_tween.tween_property(chicken, 'position:x', -2000, 2.5)
+
+func hide_chicken():
+	chicken.hide()
+	if chicken_tween and chicken_tween.is_running(): chicken_tween.kill()
+
+func _exit_tree() -> void:
+	if chicken_tween and chicken_tween.is_running(): chicken_tween.kill()

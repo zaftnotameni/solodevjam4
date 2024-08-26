@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://brjrmctxy1mnb"]
+
+[ext_resource type="Texture2D" uid="uid://sdk57026206l" path="res://assets/aseprite/big_sheet.png" id="1_0lrvb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5a6q"]
+atlas = ExtResource("1_0lrvb")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7sm2"]
+atlas = ExtResource("1_0lrvb")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv206"]
+atlas = ExtResource("1_0lrvb")
+region = Rect2(96, 16, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5a6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7sm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv206")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
