@@ -18,3 +18,4 @@ func _exit_tree() -> void:
 
 func _ready() -> void:
 	State.first().sig_player_ready.emit()
+	%PartySpawn.emitting = true

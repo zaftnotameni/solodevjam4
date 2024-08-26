@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cua0kwrl73tu6"]
+[gd_scene load_steps=15 format=4 uid="uid://cua0kwrl73tu6"]
 
 [ext_resource type="Script" path="res://addons/zaft_game_manager/state/in/game.gd" id="1_f4xuw"]
 [ext_resource type="Script" path="res://addons/zaft_game_manager/layers/at/hud.gd" id="1_vpf0b"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://qlcfs3xm1tnu" path="res://game/levels/level_002.tscn" id="10_ojbnw"]
 [ext_resource type="PackedScene" uid="uid://cyxqktr555eq4" path="res://game/decoration/level_name.tscn" id="10_ysmoy"]
 [ext_resource type="Script" path="res://game/music/requests_song.gd" id="13_qddnx"]
+[ext_resource type="PackedScene" uid="uid://yjhilfepqiwh" path="res://game/decoration/background_tiles_16.tscn" id="14_8d4kk"]
 
 [node name="Level001" type="Node2D"]
 
@@ -69,3 +70,6 @@ shadow_item_cull_mask = 2
 [node name="RequestsSong" type="Node" parent="."]
 script = ExtResource("13_qddnx")
 song = "level1"
+
+[node name="BackgroundTiles16" parent="." instance=ExtResource("14_8d4kk")]
+tile_map_data = PackedByteArray("AAD3/wEAAAAAABwAAAD4/wEAAAAAABwAAAD5/wEAAAAAABwAAAD6/wEAAAAAABwAAAD7/wEAAAAAABwAAAD6/wAAAAAAABwAAAD5/wAAAAAAABwAAAD4/wAAAAAAABwAAAD2/wEAAAACABwAAAD2/wAAAAACABwAAAD3/wAAAAACABwAAAD2////AAACABwAAAD3////AAACABwAAAD4////AAACABwAAAD5////AAACABwAAAD6////AAACABwAAAD7////AAACABwAAAD8////AAACABwAAAD8/wAAAAACABwAAAD8/wEAAAACABwAAAD9////AAACABwAAAD9/wAAAAACABwAAAD9/wEAAAACABwAAAD+////AAACABwAAAD+/wAAAAACABwAAAD+/wEAAAACABwAAAD/////AAACABwAAAD//wAAAAACABwAAAD//wEAAAACABwAAAAAAP//AAACABwAAAAAAAAAAAACABwAAAAAAAEAAAACABwAAAABAP//AAACABwAAAABAAAAAAACABwAAAABAAEAAAACABwAAAACAP//AAACABwAAAACAAAAAAACABwAAAACAAEAAAACABwAAAADAP//AAACABwAAAADAAAAAAACABwAAAADAAEAAAACABwAAAAEAP//AAACABwAAAAEAAAAAAACABwAAAAEAAEAAAACABwAAAAFAP//AAADABwAAAAFAAAAAAACABwAAAAFAAEAAAACABwAAAAGAAAAAAADABwAAAAGAAEAAAACABwAAAAHAAEAAAADABwAAAD7/wAAAAACABwAAAALAAIAAAABABwAAAAOAAEAAAABABwAAAAQAAMAAAAEABwAAAARAAMAAAAEABwAAAASAAMAAAAEABwAAAATAAMAAAAEABwAAAAUAAMAAAAEABwAAAA=")

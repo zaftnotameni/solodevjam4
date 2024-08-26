@@ -12,6 +12,10 @@ class_name PlayerDirectionLeft extends Node2D
 
 func on_state_enter(_prev:Node=null) -> void:
 	Sfx.flip()
+	if get_meta('via_transition', '') == 'bumped-into-wall':
+		%PartyWallRight.emitting = true
+		if CameraFollowsPlayer.first():
+			CameraFollowsPlayer.first().trauma_request(0.08, 0.1)
 
 func _physics_process(_delta: float) -> void:
 	visuals.scale.x = -1

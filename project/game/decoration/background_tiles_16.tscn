@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://yjhilfepqiwh"]
+
+[ext_resource type="TileSet" uid="uid://dmlj6xqmtexw1" path="res://game/decoration/background_tiles_16__tile_set.tres" id="1_5kfx1"]
+
+[node name="BackgroundTiles16" type="TileMapLayer"]
+modulate = Color(1, 1, 1, 0.215686)
+tile_set = ExtResource("1_5kfx1")
